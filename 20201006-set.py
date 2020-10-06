@@ -9,7 +9,7 @@ for i in range(1,8):
 
 y = dict(zip(s,a))
 
-
+s
 print(a)
 print(s)
 print(y)
