@@ -1,0 +1,1 @@
+# UnicodeDecode 에러는 한글 때문에 보통 발생한다.
