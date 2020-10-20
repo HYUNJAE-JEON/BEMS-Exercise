@@ -1,0 +1,1664 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (os_windows_x86.cpp:144), pid=18264, tid=0x0000000000004690
+#  guarantee(result == EXCEPTION_CONTINUE_EXECUTION) failed: Unexpected result from topLevelExceptionFilter
+#
+# JRE version: OpenJDK Runtime Environment (8.0_265-b01) (build 1.8.0_265-b01)
+# Java VM: OpenJDK 64-Bit Server VM (25.265-b01 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/ojdkbuild/ojdkbuild/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000019a68144000):  JavaThread "Python Reference Queue" daemon [_thread_in_native, id=18064, stack(0x0000008c826c0000,0x0000008c828b0000)]
+
+Stack: [0x0000008c826c0000,0x0000008c828b0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.jpype.ref.JPypeReferenceQueue.wake(J)V+0
+j  org.jpype.ref.JPypeReferenceQueue$Worker.run()V+49
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x0000019a68144000 JavaThread "Python Reference Queue" daemon [_thread_in_native, id=18064, stack(0x0000008c826c0000,0x0000008c828b0000)]
+  0x0000019a67ea5800 JavaThread "Service Thread" daemon [_thread_blocked, id=3092, stack(0x0000008c822e0000,0x0000008c824d0000)]
+  0x0000019a67e0d800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=3048, stack(0x0000008c820f0000,0x0000008c822e0000)]
+  0x0000019a67e0b000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=12044, stack(0x0000008c81f00000,0x0000008c820f0000)]
+  0x0000019a67df6800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=4132, stack(0x0000008c81d10000,0x0000008c81f00000)]
+  0x0000019a67df5800 JavaThread "Attach Listener" daemon [_thread_blocked, id=15084, stack(0x0000008c81b20000,0x0000008c81d10000)]
+  0x0000019a67df4800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=14760, stack(0x0000008c81930000,0x0000008c81b20000)]
+  0x0000019a672cc800 JavaThread "Finalizer" daemon [_thread_blocked, id=11648, stack(0x0000008c81740000,0x0000008c81930000)]
+  0x0000019a672c7000 JavaThread "Reference Handler" daemon [_thread_blocked, id=4416, stack(0x0000008c81550000,0x0000008c81740000)]
+  0x0000019a54f9e000 JavaThread "main" [_thread_in_native, id=15496, stack(0x0000008cff200000,0x0000008cff3f0000)]
+
+Other Threads:
+  0x0000019a672c1000 VMThread [stack: 0x0000008c81360000,0x0000008c81550000] [id=18464]
+  0x0000019a67e2b800 WatcherThread [stack: 0x0000008c824d0000,0x0000008c826c0000] [id=9020]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 268800K, used 478K [0x00000000eab00000, 0x00000000fe000000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab77be8,0x00000000fb100000)
+  from space 512K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fb180000)
+  to   space 24064K, 0% used [0x00000000fc880000,0x00000000fc880000,0x00000000fe000000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+
+Card table byte_map: [0x0000019a64360000,0x0000019a64570000] byte_map_base: 0x0000019a63d60000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000054faced0
+ Begin Bits: [0x0000019a646d0000, 0x0000019a656d0000)
+ End Bits:   [0x0000019a656d0000, 0x0000019a666d0000)
+
+Polling page: 0x0000019a54e10000
+
+CodeCache: size=245760Kb used=8867Kb max_used=8874Kb free=236892Kb
+ bounds [0x0000019a54fa0000, 0x0000019a55850000, 0x0000019a63fa0000]
+ total_blobs=3129 nmethods=2759 adapters=282
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 7.417 Thread 0x0000019a67e0d800 2638       3       scala.collection.mutable.ArrayBuffer::copyToArray (8 bytes)
+Event: 7.417 Thread 0x0000019a67e0d800 nmethod 2638 0x0000019a55805010 code [0x0000019a55805180, 0x0000019a55805370]
+Event: 7.417 Thread 0x0000019a67e0d800 2639       3       scala.collection.mutable.ResizableArray::copyToArray$ (8 bytes)
+Event: 7.417 Thread 0x0000019a67e0d800 nmethod 2639 0x0000019a55804c50 code [0x0000019a55804dc0, 0x0000019a55804f30]
+Event: 7.417 Thread 0x0000019a67e0d800 2640       3       scala.collection.mutable.ResizableArray::copyToArray (74 bytes)
+Event: 7.418 Thread 0x0000019a67e0d800 nmethod 2640 0x0000019a558060d0 code [0x0000019a558062c0, 0x0000019a55806da0]
+Event: 7.418 Thread 0x0000019a67e0d800 2645       3       scala.collection.immutable.HashMap$HashTrieMap::contains0 (81 bytes)
+Event: 7.418 Thread 0x0000019a67e0d800 nmethod 2645 0x0000019a55804390 code [0x0000019a55804540, 0x0000019a558049f0]
+Event: 7.418 Thread 0x0000019a67e0d800 2646       3       org.openkoreantext.processor.util.CharArrayMap::getHashCode (107 bytes)
+Event: 7.419 Thread 0x0000019a67e0d800 nmethod 2646 0x0000019a5580df90 code [0x0000019a5580e160, 0x0000019a5580e880]
+Event: 7.419 Thread 0x0000019a67e0d800 2641       3       scala.collection.mutable.ArrayBuffer::sizeHintIfCheap (5 bytes)
+Event: 7.419 Thread 0x0000019a67e0d800 nmethod 2641 0x0000019a5580eb50 code [0x0000019a5580ece0, 0x0000019a5580f1b8]
+Event: 7.419 Thread 0x0000019a67e0d800 2642       3       scala.collection.mutable.ArrayBuffer::thisCollection (5 bytes)
+Event: 7.419 Thread 0x0000019a67e0d800 nmethod 2642 0x0000019a55805bd0 code [0x0000019a55805d40, 0x0000019a55805fb8]
+Event: 7.419 Thread 0x0000019a67e0d800 2643       3       scala.collection.mutable.ArrayBuffer::thisCollection (5 bytes)
+Event: 7.420 Thread 0x0000019a67e0d800 nmethod 2643 0x0000019a5580f4d0 code [0x0000019a5580f640, 0x0000019a5580f858]
+Event: 7.420 Thread 0x0000019a67e0d800 2631       3       scala.collection.AbstractIterator::map (6 bytes)
+Event: 7.420 Thread 0x0000019a67e0d800 nmethod 2631 0x0000019a5580f950 code [0x0000019a5580fb00, 0x0000019a55810018]
+Event: 7.420 Thread 0x0000019a67e0d800 2632       3       scala.collection.Iterator::map$ (6 bytes)
+Event: 7.421 Thread 0x0000019a67e0d800 nmethod 2632 0x0000019a558103d0 code [0x0000019a55810560, 0x0000019a55810a18]
+Event: 7.421 Thread 0x0000019a67e0d800 2633       3       scala.collection.Iterator::map (10 bytes)
+Event: 7.421 Thread 0x0000019a67e0d800 nmethod 2633 0x0000019a55810d50 code [0x0000019a55810ee0, 0x0000019a55811338]
+Event: 7.421 Thread 0x0000019a67e0d800 2634       3       scala.collection.Iterator$$anon$10::<init> (21 bytes)
+Event: 7.421 Thread 0x0000019a67e0d800 nmethod 2634 0x0000019a55811590 code [0x0000019a55811720, 0x0000019a55811ad8]
+Event: 7.421 Thread 0x0000019a67e0d800 2644       1       scala.Some::isEmpty (2 bytes)
+Event: 7.421 Thread 0x0000019a67e0d800 nmethod 2644 0x0000019a55805910 code [0x0000019a55805a60, 0x0000019a55805b78]
+Event: 7.432 Thread 0x0000019a67e0d800 2647       1       org.openkoreantext.processor.tokenizer.KoreanTokenizer$::koreanPosTrie (5 bytes)
+Event: 7.433 Thread 0x0000019a67e0d800 nmethod 2647 0x0000019a558040d0 code [0x0000019a55804220, 0x0000019a55804338]
+Event: 7.437 Thread 0x0000019a67e0d800 2648       3       java.lang.invoke.TypeConvertingMethodAdapter::iconst (87 bytes)
+Event: 7.438 Thread 0x0000019a67e0d800 nmethod 2648 0x0000019a55811c90 code [0x0000019a55811e80, 0x0000019a55812740]
+Event: 7.438 Thread 0x0000019a67e0d800 2649       3       jdk.internal.org.objectweb.asm.Type::getType (9 bytes)
+Event: 7.438 Thread 0x0000019a67e0d800 nmethod 2649 0x0000019a55812a90 code [0x0000019a55812c20, 0x0000019a55812fa0]
+Event: 7.442 Thread 0x0000019a67e0d800 2650       3       scala.collection.IterableLike::sliding$ (6 bytes)
+Event: 7.442 Thread 0x0000019a67e0d800 nmethod 2650 0x0000019a55813110 code [0x0000019a55813280, 0x0000019a558134f0]
+Event: 7.442 Thread 0x0000019a67e0d800 2651       3       scala.collection.IterableLike::sliding (9 bytes)
+Event: 7.442 Thread 0x0000019a67e0d800 nmethod 2651 0x0000019a55813610 code [0x0000019a55813780, 0x0000019a558139b0]
+Event: 7.442 Thread 0x0000019a67e0d800 2652       3       scala.collection.IterableLike::sliding$ (7 bytes)
+Event: 7.443 Thread 0x0000019a67e0d800 nmethod 2652 0x0000019a55813a50 code [0x0000019a55813c60, 0x0000019a55814840]
+Event: 7.443 Thread 0x0000019a67e0d800 2653       3       scala.collection.IterableLike::sliding (23 bytes)
+Event: 7.444 Thread 0x0000019a67e0d800 nmethod 2653 0x0000019a55815150 code [0x0000019a55815360, 0x0000019a55815e60]
+Event: 7.444 Thread 0x0000019a67e0d800 2656       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$KoreanToken$::apply$default$5 (4 bytes)
+Event: 7.444 Thread 0x0000019a67e0d800 nmethod 2656 0x0000019a558165d0 code [0x0000019a55816720, 0x0000019a55816878]
+Event: 7.444 Thread 0x0000019a67e0d800 2654       3       scala.collection.AbstractIterator::sliding (7 bytes)
+Event: 7.444 Thread 0x0000019a67e0d800 nmethod 2654 0x0000019a55816910 code [0x0000019a55816a80, 0x0000019a55816d50]
+Event: 7.444 Thread 0x0000019a67e0d800 2657       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$CandidateParse::<init> (24 bytes)
+Event: 7.444 Thread 0x0000019a67e0d800 nmethod 2657 0x0000019a55816ed0 code [0x0000019a55817040, 0x0000019a55817298]
+Event: 7.444 Thread 0x0000019a67e0d800 2658       3       scala.collection.immutable.List::exists (6 bytes)
+Event: 7.445 Thread 0x0000019a67e0d800 nmethod 2658 0x0000019a55817390 code [0x0000019a55817500, 0x0000019a558176f0]
+Event: 7.445 Thread 0x0000019a67e0d800 2655       3       scala.collection.Iterator::sliding$ (7 bytes)
+Event: 7.445 Thread 0x0000019a67e0d800 nmethod 2655 0x0000019a558177d0 code [0x0000019a55817940, 0x0000019a55817b90]
+Event: 7.445 Thread 0x0000019a67e0d800 2659       3       scala.collection.AbstractSet::isEmpty (5 bytes)
+Event: 7.445 Thread 0x0000019a67e0d800 nmethod 2659 0x0000019a55817cd0 code [0x0000019a55817e40, 0x0000019a55818150]
+Event: 7.445 Thread 0x0000019a67e0d800 2660       3       scala.collection.SetLike::isEmpty$ (5 bytes)
+Event: 7.445 Thread 0x0000019a67e0d800 nmethod 2660 0x0000019a55818250 code [0x0000019a558183c0, 0x0000019a55818670]
+Event: 7.445 Thread 0x0000019a67e0d800 2661       3       scala.collection.SetLike::isEmpty (14 bytes)
+Event: 7.445 Thread 0x0000019a67e0d800 nmethod 2661 0x0000019a55818750 code [0x0000019a558188c0, 0x0000019a55818b30]
+Event: 7.445 Thread 0x0000019a67e0d800 2662       3       scala.collection.AbstractIterable::sliding (6 bytes)
+Event: 7.446 Thread 0x0000019a67e0d800 nmethod 2662 0x0000019a55818bd0 code [0x0000019a55818d60, 0x0000019a558190f0]
+Event: 7.446 Thread 0x0000019a67e0d800 2663       1       scala.collection.immutable.$colon$colon::tl_$eq (6 bytes)
+Event: 7.446 Thread 0x0000019a67e0d800 nmethod 2663 0x0000019a558192d0 code [0x0000019a55819420, 0x0000019a55819558]
+Event: 7.447 Thread 0x0000019a67e0d800 2664       3       scala.collection.ViewMkString::$init$ (1 bytes)
+Event: 7.447 Thread 0x0000019a67e0d800 nmethod 2664 0x0000019a558195d0 code [0x0000019a55819720, 0x0000019a55819858]
+Event: 7.447 Thread 0x0000019a67e0d800 2665       3       scala.collection.TraversableViewLike::$init$ (1 bytes)
+Event: 7.447 Thread 0x0000019a67e0d800 nmethod 2665 0x0000019a558198d0 code [0x0000019a55819a20, 0x0000019a55819b58]
+Event: 7.447 Thread 0x0000019a67e0d800 2666       3       scala.collection.IterableViewLike::$init$ (1 bytes)
+Event: 7.447 Thread 0x0000019a67e0d800 nmethod 2666 0x0000019a55819bd0 code [0x0000019a55819d20, 0x0000019a55819e58]
+Event: 7.447 Thread 0x0000019a67e0d800 2667       3       scala.collection.SeqViewLike::$init$ (1 bytes)
+Event: 7.447 Thread 0x0000019a67e0d800 nmethod 2667 0x0000019a55819ed0 code [0x0000019a5581a020, 0x0000019a5581a158]
+Event: 7.447 Thread 0x0000019a67e0d800 2670       3       scala.collection.mutable.ResizableArray::foreach (37 bytes)
+Event: 7.447 Thread 0x0000019a67e0d800 nmethod 2670 0x0000019a5581a1d0 code [0x0000019a5581a360, 0x0000019a5581a7f0]
+Event: 7.447 Thread 0x0000019a67e0d800 2668       3       scala.collection.mutable.ArrayBuffer::foreach (6 bytes)
+Event: 7.448 Thread 0x0000019a67e0d800 nmethod 2668 0x0000019a5581a9d0 code [0x0000019a5581ab40, 0x0000019a5581ad30]
+Event: 7.448 Thread 0x0000019a67e0d800 2669       3       scala.collection.mutable.ResizableArray::foreach$ (6 bytes)
+Event: 7.448 Thread 0x0000019a67e0d800 nmethod 2669 0x0000019a5581ae10 code [0x0000019a5581af80, 0x0000019a5581b0f0]
+Event: 7.448 Thread 0x0000019a67e0d800 2671       3       scala.collection.IterableLike$$Lambda$85/233996206::apply (12 bytes)
+Event: 7.448 Thread 0x0000019a67e0d800 nmethod 2671 0x0000019a5581b1d0 code [0x0000019a5581b360, 0x0000019a5581b870]
+Event: 7.448 Thread 0x0000019a67e0d800 2672       3       scala.collection.IterableLike::$anonfun$sliding$1 (22 bytes)
+Event: 7.448 Thread 0x0000019a67e0d800 nmethod 2672 0x0000019a5581ba10 code [0x0000019a5581bba0, 0x0000019a5581bf30]
+Event: 7.452 Thread 0x0000019a67e0d800 2673       3       org.openkoreantext.processor.util.KoreanSubstantive$::isName (251 bytes)
+Event: 7.455 Thread 0x0000019a67e0d800 nmethod 2673 0x0000019a5581c050 code [0x0000019a5581c520, 0x0000019a5581f5c0]
+Event: 7.455 Thread 0x0000019a67e0d800 2674       3       org.openkoreantext.processor.util.KoreanSubstantive$$$Lambda$95/1138193439::apply (14 bytes)
+Event: 7.456 Thread 0x0000019a67e0d800 nmethod 2674 0x0000019a55820690 code [0x0000019a55820840, 0x0000019a55820ff0]
+Event: 7.456 Thread 0x0000019a67e0d800 2675       3       org.openkoreantext.processor.util.KoreanSubstantive$::$anonfun$isKoreanNumber$1$adapted (17 bytes)
+Event: 7.456 Thread 0x0000019a67e0d800 nmethod 2675 0x0000019a55821310 code [0x0000019a558214c0, 0x0000019a55821bd0]
+Event: 7.457 Thread 0x0000019a67e0d800 2676       3       scala.collection.mutable.ArrayBuffer::copy (8 bytes)
+Event: 7.457 Thread 0x0000019a67e0d800 nmethod 2676 0x0000019a55821e50 code [0x0000019a55821fc0, 0x0000019a558221b0]
+Event: 7.457 Thread 0x0000019a67e0d800 2681       3       scala.collection.mutable.ResizableArray::reduceToSize (63 bytes)
+Event: 7.458 Thread 0x0000019a67e0d800 nmethod 2681 0x0000019a55822290 code [0x0000019a558224a0, 0x0000019a55822eb0]
+Event: 7.458 Thread 0x0000019a67e0d800 2677       3       scala.collection.mutable.ResizableArray::copy$ (8 bytes)
+Event: 7.458 Thread 0x0000019a67e0d800 nmethod 2677 0x0000019a55823190 code [0x0000019a55823320, 0x0000019a55823870]
+Event: 7.458 Thread 0x0000019a67e0d800 2678       3       scala.collection.mutable.ResizableArray::copy (35 bytes)
+Event: 7.459 Thread 0x0000019a67e0d800 nmethod 2678 0x0000019a55823a50 code [0x0000019a55823be0, 0x0000019a558240d0]
+Event: 7.459 Thread 0x0000019a67e0d800 2679       3       scala.collection.mutable.ArrayBuffer::reduceToSize (6 bytes)
+Event: 7.459 Thread 0x0000019a67e0d800 nmethod 2679 0x0000019a55824210 code [0x0000019a55824380, 0x0000019a55824570]
+Event: 7.459 Thread 0x0000019a67e0d800 2680       3       scala.collection.mutable.ResizableArray::reduceToSize$ (6 bytes)
+Event: 7.459 Thread 0x0000019a67e0d800 nmethod 2680 0x0000019a55824650 code [0x0000019a558247c0, 0x0000019a55824930]
+Event: 7.459 Thread 0x0000019a67e0d800 2682       1       scala.collection.IndexedSeqLike$Elements::scala$collection$IndexedSeqLike$Elements$$$outer (5 bytes)
+Event: 7.459 Thread 0x0000019a67e0d800 nmethod 2682 0x0000019a55824a10 code [0x0000019a55824b60, 0x0000019a55824c78]
+Event: 7.460 Thread 0x0000019a67e0d800 2683       3       scala.collection.immutable.List::$colon$colon$colon (34 bytes)
+Event: 7.461 Thread 0x0000019a67e0d800 nmethod 2683 0x0000019a55824cd0 code [0x0000019a55824ec0, 0x0000019a55825b10]
+Event: 7.461 Thread 0x0000019a67e0d800 2684       3       scala.collection.mutable.ArrayBuffer::remove (137 bytes)
+Event: 7.463 Thread 0x0000019a67e0d800 nmethod 2684 0x0000019a55825e50 code [0x0000019a558261c0, 0x0000019a558279c0]
+Event: 7.463 Thread 0x0000019a67e0d800 2685       3       scala.math.Ordering$Int$::compare (13 bytes)
+Event: 7.464 Thread 0x0000019a67e0d800 nmethod 2685 0x0000019a55828650 code [0x0000019a55828800, 0x0000019a55829018]
+Event: 7.464 Thread 0x0000019a67e0d800 2686       3       scala.math.Ordering$Int$::compare (7 bytes)
+Event: 7.467 Thread 0x0000019a67e0d800 nmethod 2686 0x0000019a55829310 code [0x0000019a55829480, 0x0000019a558297b8]
+Event: 7.467 Thread 0x0000019a67e0d800 2687       3       scala.math.Ordering$IntOrdering::compare$ (7 bytes)
+Event: 7.467 Thread 0x0000019a67e0d800 nmethod 2687 0x0000019a55829910 code [0x0000019a55829a80, 0x0000019a55829d38]
+Event: 7.467 Thread 0x0000019a67e0d800 2688       3       scala.math.Ordering$IntOrdering::compare (6 bytes)
+Event: 7.467 Thread 0x0000019a67e0d800 nmethod 2688 0x0000019a55829e50 code [0x0000019a55829fc0, 0x0000019a5582a238]
+Event: 7.467 Thread 0x0000019a67e0d800 2689       3       java.lang.Integer::compare (20 bytes)
+Event: 7.468 Thread 0x0000019a67e0d800 nmethod 2689 0x0000019a5582a310 code [0x0000019a5582a480, 0x0000019a5582a678]
+Event: 7.468 Thread 0x0000019a67e0b000 2690       4       scala.collection.immutable.List::apply (6 bytes)
+Event: 7.471 Thread 0x0000019a67df6800 2691       4       scala.collection.immutable.List::$colon$colon (10 bytes)
+Event: 7.473 Thread 0x0000019a67e0b000 nmethod 2690 0x0000019a5582d510 code [0x0000019a5582d680, 0x0000019a5582d878]
+Event: 7.473 Thread 0x0000019a67e0d800 2693       3       org.openkoreantext.processor.tokenizer.ParsedChunk::isPreferredPattern (54 bytes)
+Event: 7.473 Thread 0x0000019a67e0b000 2692       4       java.util.regex.Pattern$7::isSatisfiedBy (28 bytes)
+Event: 7.473 Thread 0x0000019a67df6800 nmethod 2691 0x0000019a5582dad0 code [0x0000019a5582dc20, 0x0000019a5582dcf8]
+Event: 7.473 Thread 0x0000019a67e0d800 nmethod 2693 0x0000019a5582c950 code [0x0000019a5582cb20, 0x0000019a5582d2b0]
+Event: 7.473 Thread 0x0000019a67e0d800 2694       3       org.openkoreantext.processor.tokenizer.ParsedChunk::isNounHa (140 bytes)
+Event: 7.474 Thread 0x0000019a67e0d800 nmethod 2694 0x0000019a5582b050 code [0x0000019a5582b2c0, 0x0000019a5582c490]
+Event: 7.474 Thread 0x0000019a67e0d800 2695       3       org.openkoreantext.processor.tokenizer.ParsedChunk::hasSpaceOutOfGuide (48 bytes)
+Event: 7.474 Thread 0x0000019a67e0b000 nmethod 2692 0x0000019a5582ab90 code [0x0000019a5582ad00, 0x0000019a5582ae68]
+Event: 7.474 Thread 0x0000019a67e0d800 nmethod 2695 0x0000019a55830050 code [0x0000019a55830220, 0x0000019a55830950]
+Event: 7.474 Thread 0x0000019a67e0d800 2696       1       scala.collection.mutable.WrappedArray$ofInt::array (5 bytes)
+Event: 7.475 Thread 0x0000019a67e0d800 nmethod 2696 0x0000019a5582a8d0 code [0x0000019a5582aa20, 0x0000019a5582ab38]
+Event: 7.475 Thread 0x0000019a67e0d800 2697       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$$$Lambda$74/1884122755::apply (8 bytes)
+Event: 7.475 Thread 0x0000019a67e0d800 nmethod 2697 0x0000019a5582f8d0 code [0x0000019a5582fa60, 0x0000019a5582fe78]
+Event: 7.475 Thread 0x0000019a67e0d800 2698       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$::$anonfun$findTopCandidates$4 (10 bytes)
+Event: 7.475 Thread 0x0000019a67e0d800 nmethod 2698 0x0000019a5582f350 code [0x0000019a5582f4c0, 0x0000019a5582f778]
+Event: 7.475 Thread 0x0000019a67e0d800 2699       3       org.openkoreantext.processor.tokenizer.ParsedChunk$$Lambda$84/1896294051::apply (8 bytes)
+Event: 7.475 Thread 0x0000019a67e0d800 nmethod 2699 0x0000019a5582ee10 code [0x0000019a5582ef80, 0x0000019a5582f258]
+Event: 7.475 Thread 0x0000019a67e0d800 2700       3       org.openkoreantext.processor.tokenizer.ParsedChunk::$anonfun$isPreferredPattern$1 (5 bytes)
+Event: 7.475 Thread 0x0000019a67e0d800 nmethod 2700 0x0000019a5582ead0 code [0x0000019a5582ec20, 0x0000019a5582ed78]
+Event: 7.476 Thread 0x0000019a67e0d800 2701       3       scala.collection.AbstractSeq::equals (6 bytes)
+Event: 7.476 Thread 0x0000019a67e0d800 nmethod 2701 0x0000019a5582e690 code [0x0000019a5582e800, 0x0000019a5582e9f0]
+Event: 7.476 Thread 0x0000019a67e0d800 2702       3       scala.collection.GenSeqLike::equals$ (6 bytes)
+Event: 7.476 Thread 0x0000019a67e0d800 nmethod 2702 0x0000019a5582e2d0 code [0x0000019a5582e440, 0x0000019a5582e5b0]
+Event: 7.476 Thread 0x0000019a67e0d800 2703       3       scala.collection.Iterator$GroupedIterator::<init> (127 bytes)
+Event: 7.477 Thread 0x0000019a67e0d800 nmethod 2703 0x0000019a55830b50 code [0x0000019a55830dc0, 0x0000019a55831d60]
+Event: 7.478 Thread 0x0000019a67e0b000 2704       4       scala.collection.TraversableOnce$$Lambda$78/1859039536::apply (13 bytes)
+Event: 7.478 Thread 0x0000019a67e0d800 2705       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$$$Lambda$66/1053631449::apply (8 bytes)
+Event: 7.478 Thread 0x0000019a67e0d800 nmethod 2705 0x0000019a55832550 code [0x0000019a558326e0, 0x0000019a55832af8]
+Event: 7.478 Thread 0x0000019a67e0d800 2706       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$::$anonfun$findTopCandidates$6 (10 bytes)
+Event: 7.478 Thread 0x0000019a67e0d800 nmethod 2706 0x0000019a55832cd0 code [0x0000019a55832e40, 0x0000019a558330f8]
+Event: 7.479 Thread 0x0000019a67df6800 2707       4       scala.collection.immutable.HashMap::computeHash (10 bytes)
+Event: 7.479 Thread 0x0000019a67e0d800 2708       3       scala.collection.AbstractMap::apply (6 bytes)
+Event: 7.480 Thread 0x0000019a67e0d800 nmethod 2708 0x0000019a5582de90 code [0x0000019a5582e000, 0x0000019a5582e1f0]
+Event: 7.482 Thread 0x0000019a67e0b000 nmethod 2704 0x0000019a55836010 code [0x0000019a55836180, 0x0000019a55836358]
+Event: 7.483 Thread 0x0000019a67e0b000 2709       4       java.lang.invoke.DirectMethodHandle::internalMemberName (8 bytes)
+Event: 7.483 Thread 0x0000019a67e0d800 2711       3       scala.collection.MapLike::apply (58 bytes)
+Event: 7.483 Thread 0x0000019a67e0d800 nmethod 2711 0x0000019a55836750 code [0x0000019a55836900, 0x0000019a55837110]
+Event: 7.483 Thread 0x0000019a67e0b000 nmethod 2709 0x0000019a558333d0 code [0x0000019a55833500, 0x0000019a55833578]
+Event: 7.483 Thread 0x0000019a67e0b000 2710       4       java.util.regex.Pattern$3::isSatisfiedBy (64 bytes)
+Event: 7.483 Thread 0x0000019a67df6800 nmethod 2707 0x0000019a558359d0 code [0x0000019a55835b40, 0x0000019a55835d58]
+Event: 7.484 Thread 0x0000019a67df6800 2712       4       java.util.regex.Pattern$Single::isSatisfiedBy (14 bytes)
+Event: 7.484 Thread 0x0000019a67e0d800 2713       3       scala.collection.immutable.HashMap::get (12 bytes)
+Event: 7.484 Thread 0x0000019a67df6800 nmethod 2712 0x0000019a557f3ad0 code [0x0000019a557f3c00, 0x0000019a557f3c78]
+Event: 7.484 Thread 0x0000019a67e0d800 nmethod 2713 0x0000019a55835190 code [0x0000019a55835320, 0x0000019a55835840]
+Event: 7.484 Thread 0x0000019a67e0d800 2714       3       java.util.regex.Pattern$1::isSatisfiedBy (13 bytes)
+Event: 7.484 Thread 0x0000019a67e0d800 nmethod 2714 0x0000019a55834c90 code [0x0000019a55834e00, 0x0000019a558350b8]
+Event: 7.485 Thread 0x0000019a67e0b000 nmethod 2710 0x0000019a55838850 code [0x0000019a558389a0, 0x0000019a55838ab8]
+Event: 7.485 Thread 0x0000019a67e0d800 2715       3       scala.collection.TraversableViewLike$Mapped$$Lambda$70/1682463303::apply (13 bytes)
+Event: 7.486 Thread 0x0000019a67e0d800 nmethod 2715 0x0000019a558380d0 code [0x0000019a55838260, 0x0000019a55838670]
+Event: 7.486 Thread 0x0000019a67e0d800 2716       3       scala.collection.TraversableViewLike$Mapped::$anonfun$foreach$2 (19 bytes)
+Event: 7.486 Thread 0x0000019a67e0d800 nmethod 2716 0x0000019a55837a50 code [0x0000019a55837be0, 0x0000019a55837f70]
+Event: 7.486 Thread 0x0000019a67e0d800 2717       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$$$Lambda$68/209833425::apply (28 bytes)
+Event: 7.486 Thread 0x0000019a67e0d800 nmethod 2717 0x0000019a55837550 code [0x0000019a558376c0, 0x0000019a55837970]
+Event: 7.486 Thread 0x0000019a67e0d800 2718       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$::$anonfun$findTopCandidates$8 (350 bytes)
+Event: 7.487 Thread 0x0000019a67df6800 2727       4       scala.collection.immutable.$colon$colon::<init> (15 bytes)
+Event: 7.488 Thread 0x0000019a67df6800 nmethod 2727 0x0000019a55837310 code [0x0000019a55837440, 0x0000019a558374b8]
+Event: 7.488 Thread 0x0000019a67e0b000 2728       4       scala.collection.LinearSeqOptimized::foldLeft (47 bytes)
+Event: 7.488 Thread 0x0000019a67e0d800 nmethod 2718 0x0000019a5583a3d0 code [0x0000019a5583a800, 0x0000019a5583d530]
+Event: 7.488 Thread 0x0000019a67e0d800 2725       3       scala.collection.LinearSeqOptimized::exists (46 bytes)
+Event: 7.489 Thread 0x0000019a67e0d800 nmethod 2725 0x0000019a55833fd0 code [0x0000019a558341a0, 0x0000019a55834a40]
+Event: 7.489 Thread 0x0000019a67e0d800 2719       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$$$Lambda$72/1920387277::get$Lambda (9 bytes)
+Event: 7.489 Thread 0x0000019a67e0d800 nmethod 2719 0x0000019a55833b10 code [0x0000019a55833c80, 0x0000019a55833ed8]
+Event: 7.489 Thread 0x0000019a67e0d800 2720       3       org.openkoreantext.processor.tokenizer.KoreanTokenizer$$$Lambda$72/1920387277::<init> (10 bytes)
+Event: 7.489 Thread 0x0000019a67e0d800 nmethod 2720 0x0000019a55833750 code [0x0000019a558338a0, 0x0000019a55833a78]
+Event: 7.489 Thread 0x0000019a67e0d800 2721       3       org.openkoreantext.processor.tokenizer.ParsedChunk::$plus$plus (43 bytes)
+Event: 7.489 Thread 0x0000019a67e0d800 nmethod 2721 0x0000019a558398d0 code [0x0000019a55839a80, 0x0000019a5583a170]
+Event: 7.489 Thread 0x0000019a67e0d800 2722       3       scala.collection.immutable.List$$Lambda$69/1113619023::apply (17 bytes)
+Event: 7.490 Thread 0x0000019a67e0d800 nmethod 2722 0x0000019a55839450 code [0x0000019a558395c0, 0x0000019a558397d0]
+Event: 7.490 Thread 0x0000019a67e0d800 2723       3       scala.collection.immutable.List::$anonfun$flatMap$1$adapted (11 bytes)
+Event: 7.490 Thread 0x0000019a67e0d800 nmethod 2723 0x0000019a558390d0 code [0x0000019a55839240, 0x0000019a558393b0]
+Event: 7.490 Thread 0x0000019a67e0d800 2724       3       scala.collection.immutable.List::$anonfun$flatMap$1 (71 bytes)
+Event: 7.490 Thread 0x0000019a67e0b000 nmethod 2728 0x0000019a55838cd0 code [0x0000019a55838e20, 0x0000019a55838f58]
+Event: 7.490 Thread 0x0000019a67e0d800 nmethod 2724 0x0000019a55841850 code [0x0000019a55841a00, 0x0000019a55842040]
+Event: 7.490 Thread 0x0000019a67e0d800 2726       3       scala.collection.AbstractIterator::exists (6 bytes)
+Event: 7.491 Thread 0x0000019a67e0d800 nmethod 2726 0x0000019a55841410 code [0x0000019a55841580, 0x0000019a55841770]
+Event: 7.491 Thread 0x0000019a67e0d800 2729       1       scala.None$::isEmpty (2 bytes)
+Event: 7.491 Thread 0x0000019a67e0d800 nmethod 2729 0x0000019a55841150 code [0x0000019a558412a0, 0x0000019a558413b8]
+Event: 7.491 Thread 0x0000019a67e0d800 2730       3       java.lang.invoke.LambdaForm$MH/2015781843::linkToTargetMethod (11 bytes)
+Event: 7.491 Thread 0x0000019a67e0d800 nmethod 2730 0x0000019a558409d0 code [0x0000019a55840b40, 0x0000019a55841040]
+Event: 7.491 Thread 0x0000019a67e0d800 2731       3       java.lang.invoke.LambdaForm$DMH/305808283::invokeStatic_L3_L (18 bytes)
+Event: 7.491 Thread 0x0000019a67e0d800 nmethod 2731 0x0000019a55840150 code [0x0000019a558402e0, 0x0000019a558408a0]
+Event: 7.491 Thread 0x0000019a67e0d800 2732       3       scala.Option::isDefined (11 bytes)
+Event: 7.491 Thread 0x0000019a67e0d800 nmethod 2732 0x0000019a5583fcd0 code [0x0000019a5583fe40, 0x0000019a558400b0]
+Event: 7.492 Thread 0x0000019a67e0d800 2733       3       scala.collection.immutable.Range$Inclusive::<init> (8 bytes)
+Event: 7.493 Thread 0x0000019a67e0d800 nmethod 2733 0x0000019a5583f910 code [0x0000019a5583fa80, 0x0000019a5583fc10]
+Event: 7.493 Thread 0x0000019a67e0d800 2734       3       scala.collection.immutable.Range::<init> (243 bytes)
+Event: 7.494 Thread 0x0000019a67e0d800 nmethod 2734 0x0000019a55842350 code [0x0000019a55842620, 0x0000019a55844050]
+Event: 7.494 Thread 0x0000019a67e0d800 2736       3       scala.Tuple2$mcZI$sp::<init> (17 bytes)
+Event: 7.495 Thread 0x0000019a67e0d800 nmethod 2736 0x0000019a558449d0 code [0x0000019a55844b40, 0x0000019a55844e38]
+Event: 7.495 Thread 0x0000019a67e0d800 2737       3       org.openkoreantext.processor.util.KoreanSubstantive$::$anonfun$isKoreanNumber$1 (160 bytes)
+Event: 7.495 Thread 0x0000019a67e0d800 nmethod 2737 0x0000019a55844f90 code [0x0000019a558451c0, 0x0000019a55845cd0]
+Event: 7.495 Thread 0x0000019a67e0d800 2739       3       scala.collection.Iterator::exists (36 bytes)
+Event: 7.496 Thread 0x0000019a67e0d800 nmethod 2739 0x0000019a55846250 code [0x0000019a55846400, 0x0000019a55846ad0]
+Event: 7.496 Thread 0x0000019a67e0d800 2735       3       scala.collection.AbstractSeq::view (5 bytes)
+Event: 7.496 Thread 0x0000019a67e0d800 nmethod 2735 0x0000019a55846c90 code [0x0000019a55846e00, 0x0000019a558470b0]
+Event: 7.496 Thread 0x0000019a67e0d800 2738       1       java.util.HashMap$Node::getValue (5 bytes)
+Event: 7.496 Thread 0x0000019a67e0d800 nmethod 2738 0x0000019a5583f610 code [0x0000019a5583f760, 0x0000019a5583f878]
+Event: 7.498 Thread 0x0000019a67e0d800 2744       3       scala.collection.LinearSeqOptimized::sameElements (137 bytes)
+Event: 7.498 Thread 0x0000019a67e0b000 2745       4       scala.collection.immutable.List::foldLeft (7 bytes)
+Event: 7.499 Thread 0x0000019a67df6800 2746       4       scala.collection.mutable.Builder::sizeHint$ (6 bytes)
+Event: 7.499 Thread 0x0000019a67e0d800 nmethod 2744 0x0000019a558471d0 code [0x0000019a55847420, 0x0000019a558483c0]
+Event: 7.499 Thread 0x0000019a67e0d800 2740       3       scala.collection.AbstractIterable::canEqual (6 bytes)
+Event: 7.499 Thread 0x0000019a67df6800 nmethod 2746 0x0000019a5584b410 code [0x0000019a5584b540, 0x0000019a5584b5f8]
+Event: 7.499 Thread 0x0000019a67e0d800 nmethod 2740 0x0000019a5584af90 code [0x0000019a5584b100, 0x0000019a5584b318]
+Event: 7.499 Thread 0x0000019a67e0d800 2741       3       scala.collection.IterableLike::canEqual$ (6 bytes)
+Event: 7.500 Thread 0x0000019a67e0d800 nmethod 2741 0x0000019a5584abd0 code [0x0000019a5584ad20, 0x0000019a5584aeb8]
+Event: 7.500 Thread 0x0000019a67e0d800 2742       3       scala.collection.immutable.List::sameElements (6 bytes)
+Event: 7.500 Thread 0x0000019a67df6800 2747       4       scala.collection.mutable.Builder::sizeHint (1 bytes)
+Event: 7.500 Thread 0x0000019a67e0d800 nmethod 2742 0x0000019a5584a790 code [0x0000019a5584a900, 0x0000019a5584aaf0]
+Event: 7.500 Thread 0x0000019a67e0d800 2743       3       scala.collection.LinearSeqOptimized::sameElements$ (6 bytes)
+Event: 7.500 Thread 0x0000019a67e0d800 nmethod 2743 0x0000019a55848ed0 code [0x0000019a55849040, 0x0000019a558491b0]
+Event: 7.500 Thread 0x0000019a67df6800 nmethod 2747 0x0000019a55848cd0 code [0x0000019a55848e00, 0x0000019a55848e58]
+Event: 7.500 Thread 0x0000019a67e0d800 2748       3       scala.collection.GenSeqLike::equals (45 bytes)
+Event: 7.500 Thread 0x0000019a67e0d800 nmethod 2748 0x0000019a55849f10 code [0x0000019a5584a0a0, 0x0000019a5584a680]
+Event: 7.500 Thread 0x0000019a67e0d800 2749       3       java.util.TimSort::binarySort (223 bytes)
+Event: 7.501 Thread 0x0000019a67e0b000 nmethod 2745 0x0000019a55848750 code [0x0000019a558488a0, 0x0000019a558489d8]
+Event: 7.501 Thread 0x0000019a67e0d800 nmethod 2749 0x0000019a5584d610 code [0x0000019a5584d7e0, 0x0000019a5584e1c0]
+Event: 7.503 Thread 0x0000019a67e0d800 2750       1       scala.util.hashing.MurmurHash3$::seqSeed (5 bytes)
+Event: 7.503 Thread 0x0000019a67e0d800 nmethod 2750 0x0000019a55849c50 code [0x0000019a55849da0, 0x0000019a55849eb8]
+Event: 7.503 Thread 0x0000019a67e0d800 2751       1       scala.collection.mutable.HashSet::seedvalue (5 bytes)
+Event: 7.503 Thread 0x0000019a67e0d800 nmethod 2751 0x0000019a55849990 code [0x0000019a55849ae0, 0x0000019a55849bf8]
+Event: 7.503 Thread 0x0000019a67e0d800 2752       1       scala.collection.mutable.HashSet::tableSize (5 bytes)
+Event: 7.504 Thread 0x0000019a67e0d800 nmethod 2752 0x0000019a558496d0 code [0x0000019a55849820, 0x0000019a55849938]
+Event: 7.504 Thread 0x0000019a67e0d800 2753       3       java.util.HashMap$HashIterator::hasNext (13 bytes)
+Event: 7.504 Thread 0x0000019a67e0d800 nmethod 2753 0x0000019a55849290 code [0x0000019a558493e0, 0x0000019a55849598]
+Event: 7.505 Thread 0x0000019a67df6800 2754       4       scala.collection.mutable.ResizableArray::ensureSize (92 bytes)
+Event: 7.505 Thread 0x0000019a67e0d800 2755       1       org.openkoreantext.processor.tokenizer.KoreanTokenizer$::TOP_N_PER_STATE (5 bytes)
+Event: 7.505 Thread 0x0000019a67e0d800 nmethod 2755 0x0000019a5584be50 code [0x0000019a5584bfa0, 0x0000019a5584c0b8]
+Event: 7.505 Thread 0x0000019a67df6800 nmethod 2754 0x0000019a5584bb10 code [0x0000019a5584bc60, 0x0000019a5584bd38]
+Event: 7.506 Thread 0x0000019a67e0d800 2756       3       scala.runtime.RichInt$::to$extension0 (9 bytes)
+Event: 7.506 Thread 0x0000019a67e0d800 nmethod 2756 0x0000019a5584cfd0 code [0x0000019a5584d140, 0x0000019a5584d490]
+Event: 7.506 Thread 0x0000019a67e0d800 2757       3       scala.collection.immutable.Range$::inclusive (11 bytes)
+Event: 7.506 Thread 0x0000019a67e0d800 nmethod 2757 0x0000019a5584cb10 code [0x0000019a5584cc80, 0x0000019a5584ced0]
+Event: 30.754 Thread 0x0000019a67e0d800 2758       1       org.jpype.ref.JPypeReferenceQueue::access$100 (5 bytes)
+Event: 30.754 Thread 0x0000019a67e0d800 nmethod 2758 0x0000019a5584b850 code [0x0000019a5584b9a0, 0x0000019a5584ba98]
+
+GC Heap History (68 events):
+Event: 0.261 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 3462K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 10% used [0x00000000eab00000,0x00000000eae61ad0,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 0K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c5580000)
+ Metaspace       used 3714K, capacity 4670K, committed 4864K, reserved 1056768K
+  class space    used 376K, capacity 426K, committed 512K, reserved 1048576K
+Event: 0.262 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 1001K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 19% used [0x00000000ecb80000,0x00000000ecc7a610,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 8K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 0% used [0x00000000c0000000,0x00000000c0002000,0x00000000c5580000)
+ Metaspace       used 3714K, capacity 4670K, committed 4864K, reserved 1056768K
+  class space    used 376K, capacity 426K, committed 512K, reserved 1048576K
+}
+Event: 0.262 GC heap before
+{Heap before GC invocations=2 (full 1):
+ PSYoungGen      total 38400K, used 1001K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 19% used [0x00000000ecb80000,0x00000000ecc7a610,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 8K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 0% used [0x00000000c0000000,0x00000000c0002000,0x00000000c5580000)
+ Metaspace       used 3714K, capacity 4670K, committed 4864K, reserved 1056768K
+  class space    used 376K, capacity 426K, committed 512K, reserved 1048576K
+Event: 0.267 GC heap after
+Heap after GC invocations=2 (full 1):
+ PSYoungGen      total 38400K, used 0K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 895K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 1% used [0x00000000c0000000,0x00000000c00dfcb0,0x00000000c5580000)
+ Metaspace       used 3714K, capacity 4670K, committed 4864K, reserved 1056768K
+  class space    used 376K, capacity 426K, committed 512K, reserved 1048576K
+}
+Event: 2.326 GC heap before
+{Heap before GC invocations=3 (full 1):
+ PSYoungGen      total 38400K, used 33280K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000eab00000,0x00000000ecb80000,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 895K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 1% used [0x00000000c0000000,0x00000000c00dfcb0,0x00000000c5580000)
+ Metaspace       used 11196K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+Event: 2.335 GC heap after
+Heap after GC invocations=3 (full 1):
+ PSYoungGen      total 38400K, used 5101K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ed080000,0x00000000ed57b788,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 7303K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 8% used [0x00000000c0000000,0x00000000c0721cf0,0x00000000c5580000)
+ Metaspace       used 11196K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+}
+Event: 2.363 GC heap before
+{Heap before GC invocations=4 (full 1):
+ PSYoungGen      total 38400K, used 7436K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 7% used [0x00000000eab00000,0x00000000ead47c70,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ed080000,0x00000000ed57b788,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 7303K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 8% used [0x00000000c0000000,0x00000000c0721cf0,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+Event: 2.367 GC heap after
+Heap after GC invocations=4 (full 1):
+ PSYoungGen      total 38400K, used 5101K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ecb80000,0x00000000ed07b778,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 7895K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 9% used [0x00000000c0000000,0x00000000c07b5d00,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+}
+Event: 2.367 GC heap before
+{Heap before GC invocations=5 (full 2):
+ PSYoungGen      total 38400K, used 5101K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ecb80000,0x00000000ed07b778,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 7895K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 9% used [0x00000000c0000000,0x00000000c07b5d00,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+Event: 2.435 GC heap after
+Heap after GC invocations=5 (full 2):
+ PSYoungGen      total 38400K, used 0K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 9971K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09bcf20,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+}
+Event: 2.458 GC heap before
+{Heap before GC invocations=6 (full 2):
+ PSYoungGen      total 38400K, used 978K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 2% used [0x00000000eab00000,0x00000000eabf4920,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+ ParOldGen       total 87552K, used 9971K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09bcf20,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+Event: 2.459 GC heap after
+Heap after GC invocations=6 (full 2):
+ PSYoungGen      total 38400K, used 192K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 3% used [0x00000000ed080000,0x00000000ed0b0000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 9971K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09bcf20,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+}
+Event: 2.459 GC heap before
+{Heap before GC invocations=7 (full 3):
+ PSYoungGen      total 38400K, used 192K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 3% used [0x00000000ed080000,0x00000000ed0b0000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 9971K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09bcf20,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+Event: 2.492 GC heap after
+Heap after GC invocations=7 (full 3):
+ PSYoungGen      total 38400K, used 0K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 10089K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09da628,0x00000000c5580000)
+ Metaspace       used 11202K, capacity 11558K, committed 11776K, reserved 1058816K
+  class space    used 1563K, capacity 1690K, committed 1792K, reserved 1048576K
+}
+Event: 3.276 GC heap before
+{Heap before GC invocations=8 (full 3):
+ PSYoungGen      total 38400K, used 33280K [0x00000000eab00000, 0x00000000ed580000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000eab00000,0x00000000ecb80000,0x00000000ecb80000)
+  from space 5120K, 0% used [0x00000000ed080000,0x00000000ed080000,0x00000000ed580000)
+  to   space 5120K, 0% used [0x00000000ecb80000,0x00000000ecb80000,0x00000000ed080000)
+ ParOldGen       total 87552K, used 10089K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 11% used [0x00000000c0000000,0x00000000c09da628,0x00000000c5580000)
+ Metaspace       used 12012K, capacity 12422K, committed 12672K, reserved 1060864K
+  class space    used 1701K, capacity 1822K, committed 1920K, reserved 1048576K
+Event: 3.305 GC heap after
+Heap after GC invocations=8 (full 3):
+ PSYoungGen      total 38400K, used 5088K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ecb80000,0x00000000ed078018,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 12762K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 14% used [0x00000000c0000000,0x00000000c0c76bb0,0x00000000c5580000)
+ Metaspace       used 12012K, capacity 12422K, committed 12672K, reserved 1060864K
+  class space    used 1701K, capacity 1822K, committed 1920K, reserved 1048576K
+}
+Event: 3.360 GC heap before
+{Heap before GC invocations=9 (full 3):
+ PSYoungGen      total 38400K, used 15091K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 33280K, 30% used [0x00000000eab00000,0x00000000eb4c4f90,0x00000000ecb80000)
+  from space 5120K, 99% used [0x00000000ecb80000,0x00000000ed078018,0x00000000ed080000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 12762K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 14% used [0x00000000c0000000,0x00000000c0c76bb0,0x00000000c5580000)
+ Metaspace       used 12021K, capacity 12428K, committed 12672K, reserved 1060864K
+  class space    used 1702K, capacity 1823K, committed 1920K, reserved 1048576K
+Event: 3.369 GC heap after
+Heap after GC invocations=9 (full 3):
+ PSYoungGen      total 71680K, used 5088K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000ef100000,0x00000000ef5f8018,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 13834K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 15% used [0x00000000c0000000,0x00000000c0d82bb0,0x00000000c5580000)
+ Metaspace       used 12021K, capacity 12428K, committed 12672K, reserved 1060864K
+  class space    used 1702K, capacity 1823K, committed 1920K, reserved 1048576K
+}
+Event: 3.369 GC heap before
+{Heap before GC invocations=10 (full 4):
+ PSYoungGen      total 71680K, used 5088K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000ef100000,0x00000000ef5f8018,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 13834K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 15% used [0x00000000c0000000,0x00000000c0d82bb0,0x00000000c5580000)
+ Metaspace       used 12021K, capacity 12428K, committed 12672K, reserved 1060864K
+  class space    used 1702K, capacity 1823K, committed 1920K, reserved 1048576K
+Event: 3.492 GC heap after
+Heap after GC invocations=10 (full 4):
+ PSYoungGen      total 71680K, used 0K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 17533K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 20% used [0x00000000c0000000,0x00000000c111f7a0,0x00000000c5580000)
+ Metaspace       used 12021K, capacity 12428K, committed 12672K, reserved 1060864K
+  class space    used 1702K, capacity 1823K, committed 1920K, reserved 1048576K
+}
+Event: 3.528 GC heap before
+{Heap before GC invocations=11 (full 4):
+ PSYoungGen      total 71680K, used 14787K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 22% used [0x00000000eab00000,0x00000000eb970e40,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 17533K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 20% used [0x00000000c0000000,0x00000000c111f7a0,0x00000000c5580000)
+ Metaspace       used 12024K, capacity 12434K, committed 12672K, reserved 1060864K
+  class space    used 1703K, capacity 1824K, committed 1920K, reserved 1048576K
+Event: 3.531 GC heap after
+Heap after GC invocations=11 (full 4):
+ PSYoungGen      total 71680K, used 1696K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 33% used [0x00000000eec00000,0x00000000eeda8000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 17541K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 20% used [0x00000000c0000000,0x00000000c11217a0,0x00000000c5580000)
+ Metaspace       used 12024K, capacity 12434K, committed 12672K, reserved 1060864K
+  class space    used 1703K, capacity 1824K, committed 1920K, reserved 1048576K
+}
+Event: 3.531 GC heap before
+{Heap before GC invocations=12 (full 5):
+ PSYoungGen      total 71680K, used 1696K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 33% used [0x00000000eec00000,0x00000000eeda8000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 17541K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 20% used [0x00000000c0000000,0x00000000c11217a0,0x00000000c5580000)
+ Metaspace       used 12024K, capacity 12434K, committed 12672K, reserved 1060864K
+  class space    used 1703K, capacity 1824K, committed 1920K, reserved 1048576K
+Event: 3.683 GC heap after
+Heap after GC invocations=12 (full 5):
+ PSYoungGen      total 71680K, used 0K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 18784K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 21% used [0x00000000c0000000,0x00000000c1258150,0x00000000c5580000)
+ Metaspace       used 12024K, capacity 12434K, committed 12672K, reserved 1060864K
+  class space    used 1703K, capacity 1824K, committed 1920K, reserved 1048576K
+}
+Event: 3.883 GC heap before
+{Heap before GC invocations=13 (full 5):
+ PSYoungGen      total 71680K, used 66560K [0x00000000eab00000, 0x00000000ef600000, 0x0000000100000000)
+  eden space 66560K, 100% used [0x00000000eab00000,0x00000000eec00000,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000ef100000,0x00000000ef100000,0x00000000ef600000)
+ ParOldGen       total 87552K, used 18784K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 21% used [0x00000000c0000000,0x00000000c1258150,0x00000000c5580000)
+ Metaspace       used 12291K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+Event: 3.896 GC heap after
+Heap after GC invocations=13 (full 5):
+ PSYoungGen      total 71680K, used 5088K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000ef100000,0x00000000ef5f8010,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 23501K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 26% used [0x00000000c0000000,0x00000000c16f3768,0x00000000c5580000)
+ Metaspace       used 12291K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+}
+Event: 3.940 GC heap before
+{Heap before GC invocations=14 (full 5):
+ PSYoungGen      total 71680K, used 31405K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 39% used [0x00000000eab00000,0x00000000ec4b3790,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000ef100000,0x00000000ef5f8010,0x00000000ef600000)
+  to   space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+ ParOldGen       total 87552K, used 23501K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 26% used [0x00000000c0000000,0x00000000c16f3768,0x00000000c5580000)
+ Metaspace       used 12292K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+Event: 3.950 GC heap after
+Heap after GC invocations=14 (full 5):
+ PSYoungGen      total 71680K, used 5114K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000eec00000,0x00000000ef0fea98,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+ ParOldGen       total 87552K, used 25933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 29% used [0x00000000c0000000,0x00000000c1953768,0x00000000c5580000)
+ Metaspace       used 12292K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+}
+Event: 3.950 GC heap before
+{Heap before GC invocations=15 (full 6):
+ PSYoungGen      total 71680K, used 5114K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 99% used [0x00000000eec00000,0x00000000ef0fea98,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+ ParOldGen       total 87552K, used 25933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 29% used [0x00000000c0000000,0x00000000c1953768,0x00000000c5580000)
+ Metaspace       used 12292K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+Event: 4.111 GC heap after
+Heap after GC invocations=15 (full 6):
+ PSYoungGen      total 71680K, used 0K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+ ParOldGen       total 87552K, used 21933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 25% used [0x00000000c0000000,0x00000000c156b7b8,0x00000000c5580000)
+ Metaspace       used 12292K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+}
+Event: 4.161 GC heap before
+{Heap before GC invocations=16 (full 6):
+ PSYoungGen      total 71680K, used 25016K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 66560K, 37% used [0x00000000eab00000,0x00000000ec36e070,0x00000000eec00000)
+  from space 5120K, 0% used [0x00000000eec00000,0x00000000eec00000,0x00000000ef100000)
+  to   space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+ ParOldGen       total 87552K, used 21933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 25% used [0x00000000c0000000,0x00000000c156b7b8,0x00000000c5580000)
+ Metaspace       used 12293K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+Event: 4.166 GC heap after
+Heap after GC invocations=16 (full 6):
+ PSYoungGen      total 138240K, used 2784K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 133120K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2d00000)
+  from space 5120K, 54% used [0x00000000f3200000,0x00000000f34b8000,0x00000000f3700000)
+  to   space 5120K, 0% used [0x00000000f2d00000,0x00000000f2d00000,0x00000000f3200000)
+ ParOldGen       total 87552K, used 21933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 25% used [0x00000000c0000000,0x00000000c156b7b8,0x00000000c5580000)
+ Metaspace       used 12293K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+}
+Event: 4.166 GC heap before
+{Heap before GC invocations=17 (full 7):
+ PSYoungGen      total 138240K, used 2784K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 133120K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2d00000)
+  from space 5120K, 54% used [0x00000000f3200000,0x00000000f34b8000,0x00000000f3700000)
+  to   space 5120K, 0% used [0x00000000f2d00000,0x00000000f2d00000,0x00000000f3200000)
+ ParOldGen       total 87552K, used 21933K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 25% used [0x00000000c0000000,0x00000000c156b7b8,0x00000000c5580000)
+ Metaspace       used 12293K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+Event: 4.259 GC heap after
+Heap after GC invocations=17 (full 7):
+ PSYoungGen      total 138240K, used 0K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 133120K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2d00000)
+  from space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+  to   space 5120K, 0% used [0x00000000f2d00000,0x00000000f2d00000,0x00000000f3200000)
+ ParOldGen       total 87552K, used 24162K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 27% used [0x00000000c0000000,0x00000000c1798aa0,0x00000000c5580000)
+ Metaspace       used 12293K, capacity 12748K, committed 12928K, reserved 1060864K
+  class space    used 1750K, capacity 1862K, committed 1920K, reserved 1048576K
+}
+Event: 5.575 GC heap before
+{Heap before GC invocations=18 (full 7):
+ PSYoungGen      total 138240K, used 133120K [0x00000000eab00000, 0x00000000f3700000, 0x0000000100000000)
+  eden space 133120K, 100% used [0x00000000eab00000,0x00000000f2d00000,0x00000000f2d00000)
+  from space 5120K, 0% used [0x00000000f3200000,0x00000000f3200000,0x00000000f3700000)
+  to   space 5120K, 0% used [0x00000000f2d00000,0x00000000f2d00000,0x00000000f3200000)
+ ParOldGen       total 87552K, used 24162K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 27% used [0x00000000c0000000,0x00000000c1798aa0,0x00000000c5580000)
+ Metaspace       used 14131K, capacity 14786K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+Event: 5.609 GC heap after
+Heap after GC invocations=18 (full 7):
+ PSYoungGen      total 138240K, used 5112K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 133120K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f2d00000)
+  from space 5120K, 99% used [0x00000000f2d00000,0x00000000f31fe318,0x00000000f3200000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 47387K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 54% used [0x00000000c0000000,0x00000000c2e46f90,0x00000000c5580000)
+ Metaspace       used 14131K, capacity 14786K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+}
+Event: 5.641 GC heap before
+{Heap before GC invocations=19 (full 7):
+ PSYoungGen      total 138240K, used 23776K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 133120K, 14% used [0x00000000eab00000,0x00000000ebd39da0,0x00000000f2d00000)
+  from space 5120K, 99% used [0x00000000f2d00000,0x00000000f31fe318,0x00000000f3200000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 47387K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 54% used [0x00000000c0000000,0x00000000c2e46f90,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+Event: 5.648 GC heap after
+Heap after GC invocations=19 (full 7):
+ PSYoungGen      total 271360K, used 5112K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 99% used [0x00000000fb400000,0x00000000fb8fe318,0x00000000fb900000)
+  to   space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 49803K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 56% used [0x00000000c0000000,0x00000000c30a2f90,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+}
+Event: 5.648 GC heap before
+{Heap before GC invocations=20 (full 8):
+ PSYoungGen      total 271360K, used 5112K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 99% used [0x00000000fb400000,0x00000000fb8fe318,0x00000000fb900000)
+  to   space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 49803K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 56% used [0x00000000c0000000,0x00000000c30a2f90,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+Event: 5.898 GC heap after
+Heap after GC invocations=20 (full 8):
+ PSYoungGen      total 271360K, used 0K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+  to   space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 42918K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 49% used [0x00000000c0000000,0x00000000c29e9be8,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+}
+Event: 5.934 GC heap before
+{Heap before GC invocations=21 (full 8):
+ PSYoungGen      total 271360K, used 26870K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 10% used [0x00000000eab00000,0x00000000ec53d948,0x00000000faf00000)
+  from space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+  to   space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 42918K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 49% used [0x00000000c0000000,0x00000000c29e9be8,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+Event: 5.941 GC heap after
+Heap after GC invocations=21 (full 8):
+ PSYoungGen      total 271360K, used 3264K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 63% used [0x00000000faf00000,0x00000000fb230000,0x00000000fb400000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 42918K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 49% used [0x00000000c0000000,0x00000000c29e9be8,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+}
+Event: 5.941 GC heap before
+{Heap before GC invocations=22 (full 9):
+ PSYoungGen      total 271360K, used 3264K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 63% used [0x00000000faf00000,0x00000000fb230000,0x00000000fb400000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 42918K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 49% used [0x00000000c0000000,0x00000000c29e9be8,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+Event: 6.107 GC heap after
+Heap after GC invocations=22 (full 9):
+ PSYoungGen      total 271360K, used 0K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000faf00000)
+  from space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 45821K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 52% used [0x00000000c0000000,0x00000000c2cbf6f0,0x00000000c5580000)
+ Metaspace       used 14145K, capacity 14794K, committed 15104K, reserved 1062912K
+  class space    used 2030K, capacity 2201K, committed 2304K, reserved 1048576K
+}
+Event: 6.510 GC heap before
+{Heap before GC invocations=23 (full 9):
+ PSYoungGen      total 271360K, used 266240K [0x00000000eab00000, 0x00000000fb900000, 0x0000000100000000)
+  eden space 266240K, 100% used [0x00000000eab00000,0x00000000faf00000,0x00000000faf00000)
+  from space 5120K, 0% used [0x00000000faf00000,0x00000000faf00000,0x00000000fb400000)
+  to   space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+ ParOldGen       total 87552K, used 45821K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 52% used [0x00000000c0000000,0x00000000c2cbf6f0,0x00000000c5580000)
+ Metaspace       used 14205K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+Event: 6.576 GC heap after
+Heap after GC invocations=23 (full 9):
+ PSYoungGen      total 249344K, used 5120K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 5120K, 100% used [0x00000000fb400000,0x00000000fb900000,0x00000000fb900000)
+  to   space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 71914K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 82% used [0x00000000c0000000,0x00000000c463abe8,0x00000000c5580000)
+ Metaspace       used 14205K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+}
+Event: 6.576 GC heap before
+{Heap before GC invocations=24 (full 10):
+ PSYoungGen      total 249344K, used 5120K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 5120K, 100% used [0x00000000fb400000,0x00000000fb900000,0x00000000fb900000)
+  to   space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+ ParOldGen       total 87552K, used 71914K [0x00000000c0000000, 0x00000000c5580000, 0x00000000eab00000)
+  object space 87552K, 82% used [0x00000000c0000000,0x00000000c463abe8,0x00000000c5580000)
+ Metaspace       used 14205K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+Event: 6.897 GC heap after
+Heap after GC invocations=24 (full 10):
+ PSYoungGen      total 249344K, used 0K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+  to   space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+ ParOldGen       total 155648K, used 72144K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46741a0,0x00000000c9800000)
+ Metaspace       used 14205K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+}
+Event: 6.936 GC heap before
+{Heap before GC invocations=25 (full 10):
+ PSYoungGen      total 249344K, used 34190K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 244224K, 13% used [0x00000000eab00000,0x00000000ecc63998,0x00000000f9980000)
+  from space 5120K, 0% used [0x00000000fb400000,0x00000000fb400000,0x00000000fb900000)
+  to   space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+ ParOldGen       total 155648K, used 72144K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46741a0,0x00000000c9800000)
+ Metaspace       used 14206K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+Event: 6.942 GC heap after
+Heap after GC invocations=25 (full 10):
+ PSYoungGen      total 271360K, used 3232K [0x00000000eab00000, 0x00000000fe400000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 27136K, 11% used [0x00000000f9980000,0x00000000f9ca8000,0x00000000fb400000)
+  to   space 26112K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe400000)
+ ParOldGen       total 155648K, used 72144K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46741a0,0x00000000c9800000)
+ Metaspace       used 14206K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+}
+Event: 6.942 GC heap before
+{Heap before GC invocations=26 (full 11):
+ PSYoungGen      total 271360K, used 3232K [0x00000000eab00000, 0x00000000fe400000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 27136K, 11% used [0x00000000f9980000,0x00000000f9ca8000,0x00000000fb400000)
+  to   space 26112K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe400000)
+ ParOldGen       total 155648K, used 72144K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46741a0,0x00000000c9800000)
+ Metaspace       used 14206K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+Event: 7.216 GC heap after
+Heap after GC invocations=26 (full 11):
+ PSYoungGen      total 271360K, used 0K [0x00000000eab00000, 0x00000000fe400000, 0x0000000100000000)
+  eden space 244224K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000f9980000)
+  from space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+  to   space 26112K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe400000)
+ ParOldGen       total 155648K, used 75160K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 48% used [0x00000000c0000000,0x00000000c4966190,0x00000000c9800000)
+ Metaspace       used 14206K, capacity 14898K, committed 15104K, reserved 1062912K
+  class space    used 2068K, capacity 2236K, committed 2304K, reserved 1048576K
+}
+Event: 8.180 GC heap before
+{Heap before GC invocations=27 (full 11):
+ PSYoungGen      total 271360K, used 30400K [0x00000000eab00000, 0x00000000fe400000, 0x0000000100000000)
+  eden space 244224K, 12% used [0x00000000eab00000,0x00000000ec8b0060,0x00000000f9980000)
+  from space 27136K, 0% used [0x00000000f9980000,0x00000000f9980000,0x00000000fb400000)
+  to   space 26112K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe400000)
+ ParOldGen       total 155648K, used 75160K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 48% used [0x00000000c0000000,0x00000000c4966190,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 8.184 GC heap after
+Heap after GC invocations=27 (full 11):
+ PSYoungGen      total 293376K, used 3307K [0x00000000eab00000, 0x00000000fe300000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 13% used [0x00000000fca80000,0x00000000fcdbacc0,0x00000000fe300000)
+  to   space 25600K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fca00000)
+ ParOldGen       total 155648K, used 75168K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 48% used [0x00000000c0000000,0x00000000c4968190,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 8.184 GC heap before
+{Heap before GC invocations=28 (full 12):
+ PSYoungGen      total 293376K, used 3307K [0x00000000eab00000, 0x00000000fe300000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 13% used [0x00000000fca80000,0x00000000fcdbacc0,0x00000000fe300000)
+  to   space 25600K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fca00000)
+ ParOldGen       total 155648K, used 75168K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 48% used [0x00000000c0000000,0x00000000c4968190,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 8.585 GC heap after
+Heap after GC invocations=28 (full 12):
+ PSYoungGen      total 293376K, used 0K [0x00000000eab00000, 0x00000000fe300000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe300000)
+  to   space 25600K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fca00000)
+ ParOldGen       total 155648K, used 72562K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46dc900,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 8.586 GC heap before
+{Heap before GC invocations=29 (full 12):
+ PSYoungGen      total 293376K, used 478K [0x00000000eab00000, 0x00000000fe300000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab77be8,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fca80000,0x00000000fca80000,0x00000000fe300000)
+  to   space 25600K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fca00000)
+ ParOldGen       total 155648K, used 72562K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46dc900,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 8.586 GC heap after
+Heap after GC invocations=29 (full 12):
+ PSYoungGen      total 268800K, used 64K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 12% used [0x00000000fb100000,0x00000000fb110000,0x00000000fb180000)
+  to   space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+ ParOldGen       total 155648K, used 72562K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46dc900,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 8.586 GC heap before
+{Heap before GC invocations=30 (full 13):
+ PSYoungGen      total 268800K, used 64K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 12% used [0x00000000fb100000,0x00000000fb110000,0x00000000fb180000)
+  to   space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+ ParOldGen       total 155648K, used 72562K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46dc900,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 8.687 GC heap after
+Heap after GC invocations=30 (full 13):
+ PSYoungGen      total 268800K, used 0K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fb180000)
+  to   space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baaa8,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 9.505 GC heap before
+{Heap before GC invocations=31 (full 13):
+ PSYoungGen      total 268800K, used 478K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab77be8,0x00000000fb100000)
+  from space 512K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fb180000)
+  to   space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baaa8,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 9.506 GC heap after
+Heap after GC invocations=31 (full 13):
+ PSYoungGen      total 293376K, used 64K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fc980000,0x00000000fc990000,0x00000000fe200000)
+  to   space 25088K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fc980000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baaa8,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 9.506 GC heap before
+{Heap before GC invocations=32 (full 14):
+ PSYoungGen      total 293376K, used 64K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fc980000,0x00000000fc990000,0x00000000fe200000)
+  to   space 25088K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fc980000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baaa8,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 9.670 GC heap after
+Heap after GC invocations=32 (full 14):
+ PSYoungGen      total 293376K, used 0K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+  to   space 25088K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fc980000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 212.932 GC heap before
+{Heap before GC invocations=33 (full 14):
+ PSYoungGen      total 293376K, used 478K [0x00000000eab00000, 0x00000000fe200000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab77be8,0x00000000fb100000)
+  from space 25088K, 0% used [0x00000000fc980000,0x00000000fc980000,0x00000000fe200000)
+  to   space 25088K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fc980000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 212.933 GC heap after
+Heap after GC invocations=33 (full 14):
+ PSYoungGen      total 268800K, used 64K [0x00000000eab00000, 0x00000000fe000000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 12% used [0x00000000fb100000,0x00000000fb110000,0x00000000fb180000)
+  to   space 24064K, 0% used [0x00000000fc880000,0x00000000fc880000,0x00000000fe000000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+Event: 212.933 GC heap before
+{Heap before GC invocations=34 (full 15):
+ PSYoungGen      total 268800K, used 64K [0x00000000eab00000, 0x00000000fe000000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 12% used [0x00000000fb100000,0x00000000fb110000,0x00000000fb180000)
+  to   space 24064K, 0% used [0x00000000fc880000,0x00000000fc880000,0x00000000fe000000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+Event: 213.071 GC heap after
+Heap after GC invocations=34 (full 15):
+ PSYoungGen      total 268800K, used 0K [0x00000000eab00000, 0x00000000fe000000, 0x0000000100000000)
+  eden space 268288K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fb100000)
+  from space 512K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fb180000)
+  to   space 24064K, 0% used [0x00000000fc880000,0x00000000fc880000,0x00000000fe000000)
+ ParOldGen       total 155648K, used 72426K [0x00000000c0000000, 0x00000000c9800000, 0x00000000eab00000)
+  object space 155648K, 46% used [0x00000000c0000000,0x00000000c46baa60,0x00000000c9800000)
+ Metaspace       used 14570K, capacity 15306K, committed 15360K, reserved 1062912K
+  class space    used 2102K, capacity 2276K, committed 2304K, reserved 1048576K
+}
+
+Deoptimization events (152 events):
+Event: 0.376 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a550eaa38 method=java.lang.String.hashCode()I @ 14
+Event: 0.487 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55180e14 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 0.487 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55180e14 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 0.487 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55180e14 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 0.487 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55180e14 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 152
+Event: 0.503 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5517fd94 method=java.util.LinkedHashMap$LinkedHashIterator.hasNext()Z @ 4
+Event: 0.512 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5518d60c method=com.sun.nio.zipfs.ZipFileSystem.getParent([B)[B @ 21
+Event: 0.512 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5518e39c method=java.util.Arrays.equals([B[B)Z @ 2
+Event: 0.516 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5518ea5c method=java.util.Arrays.equals([B[B)Z @ 2
+Event: 0.525 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55184b84 method=java.util.Arrays.hashCode([B)I @ 1
+Event: 0.528 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a551803e0 method=java.util.LinkedHashMap.linkNodeLast(Ljava/util/LinkedHashMap$Entry;)V @ 11
+Event: 0.660 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5517c880 method=java.util.LinkedHashMap.afterNodeInsertion(Z)V @ 15
+Event: 0.848 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5517c880 method=java.util.LinkedHashMap.afterNodeInsertion(Z)V @ 15
+Event: 0.848 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5517c880 method=java.util.LinkedHashMap.afterNodeInsertion(Z)V @ 15
+Event: 0.866 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5517c880 method=java.util.LinkedHashMap.afterNodeInsertion(Z)V @ 15
+Event: 2.129 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55354304 method=org.openkoreantext.processor.util.CharArrayMap.put([CLjava/lang/Object;)Ljava/lang/Object; @ 94
+Event: 2.195 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5534a78c method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 55
+Event: 2.197 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5535955c method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 2.198 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5534e51c method=java.lang.Boolean.valueOf(Z)Ljava/lang/Boolean; @ 1
+Event: 2.198 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a553554b8 method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 2.200 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55356644 method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 2.200 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55353348 method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 2.247 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5534cee0 method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 55
+Event: 2.252 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a552f12e0 method=sun.net.www.ParseUtil.encodePath(Ljava/lang/String;Z)Ljava/lang/String; @ 109
+Event: 3.082 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a553812d0 method=scala.collection.Iterator.foreach(Lscala/Function1;)V @ 6
+Event: 3.145 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55186424 method=java.util.LinkedHashMap.linkNodeLast(Ljava/util/LinkedHashMap$Entry;)V @ 11
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5539b8d4 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5539b8d4 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5539b8d4 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000019a5539d8e8 method=scala.Array$.copy(Ljava/lang/Object;ILjava/lang/Object;II)V @ 33
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000019a5539d8e8 method=scala.Array$.copy(Ljava/lang/Object;ILjava/lang/Object;II)V @ 33
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5539b8d4 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000019a5539d8e8 method=scala.Array$.copy(Ljava/lang/Object;ILjava/lang/Object;II)V @ 33
+Event: 3.150 Thread 0x0000019a54f9e000 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000019a5539d8e8 method=scala.Array$.copy(Ljava/lang/Object;ILjava/lang/Object;II)V @ 33
+Event: 3.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a553ae5d8 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 64
+Event: 3.198 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5540c9c4 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 64
+Event: 3.329 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55477d24 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 55
+Event: 3.334 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55477dc8 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 55
+Event: 3.355 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55477d24 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 55
+Event: 3.356 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55477dc8 method=scala.collection.immutable.HashSet$HashTrieSet.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 55
+Event: 3.843 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55592230 method=scala.collection.immutable.TrieIterator.next0([Lscala/collection/immutable/Iterable;I)Ljava/lang/Object; @ 23
+Event: 3.844 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5559a6a4 method=scala.collection.immutable.TrieIterator.next0([Lscala/collection/immutable/Iterable;I)Ljava/lang/Object; @ 23
+Event: 3.844 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5558da98 method=scala.collection.immutable.TrieIterator.hasNext()Z @ 12
+Event: 3.848 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5547f7d0 method=scala.collection.immutable.HashSet$HashSet1.updated0(Ljava/lang/Object;II)Lscala/collection/immutable/HashSet; @ 16
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557cdec method=scala.collection.SetLike$$Lambda$24/250370634.apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557cdec method=scala.collection.SetLike$$Lambda$24/250370634.apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557cdec method=scala.collection.SetLike$$Lambda$24/250370634.apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557cdec method=scala.collection.SetLike$$Lambda$24/250370634.apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55568c64 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5554e784 method=scala.collection.Iterator.foreach(Lscala/Function1;)V @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55568c64 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 3.853 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5554e784 method=scala.collection.Iterator.foreach(Lscala/Function1;)V @ 1
+Event: 3.854 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55568c64 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 3.854 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5554e784 method=scala.collection.Iterator.foreach(Lscala/Function1;)V @ 1
+Event: 3.854 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55568c64 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 3.854 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5554e784 method=scala.collection.Iterator.foreach(Lscala/Function1;)V @ 1
+Event: 4.351 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5559fabc method=scala.collection.immutable.TrieIterator.next0([Lscala/collection/immutable/Iterable;I)Ljava/lang/Object; @ 23
+Event: 5.116 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55582760 method=scala.collection.immutable.List.$plus$plus(Lscala/collection/GenTraversableOnce;Lscala/collection/generic/CanBuildFrom;)Ljava/lang/Object; @ 7
+Event: 5.132 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a555d3790 method=java.util.regex.Pattern.isSupplementary(I)Z @ 3
+Event: 5.133 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55346c70 method=java.lang.Character.isSurrogate(C)Z @ 3
+Event: 5.155 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557291c method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 5.155 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557291c method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 5.155 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557291c method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 5.155 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5557291c method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 5.155 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5546b7d8 method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 5.157 Thread 0x0000019a54f9e000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000019a55547000 method=scala.collection.immutable.List.foreach(Lscala/Function1;)V @ 9
+Event: 5.158 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5515d580 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55540468 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55540468 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55540468 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55540468 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55545ee8 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.161 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5553fc28 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.191 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555abb18 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 5.196 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555b4b90 method=scala.collection.generic.GenericCompanion.apply(Lscala/collection/Seq;)Lscala/collection/GenTraversable; @ 1
+Event: 5.196 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555c247c method=scala.collection.IndexedSeqOptimized.foreach(Lscala/Function1;)V @ 3
+Event: 5.202 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a555b93f4 method=scala.collection.immutable.List.map(Lscala/Function1;Lscala/collection/generic/CanBuildFrom;)Ljava/lang/Object; @ 7
+Event: 5.279 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555adc3c method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 5.279 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55349048 method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 5.282 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555b4b90 method=scala.collection.generic.GenericCompanion.apply(Lscala/collection/Seq;)Lscala/collection/GenTraversable; @ 1
+Event: 5.282 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555c247c method=scala.collection.IndexedSeqOptimized.foreach(Lscala/Function1;)V @ 3
+Event: 5.283 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555adc3c method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 5.283 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a553478e8 method=org.openkoreantext.processor.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 5.286 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a550bfc34 method=java.util.zip.InflaterInputStream.read()I @ 11
+Event: 5.286 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a550bfc34 method=java.util.zip.InflaterInputStream.read()I @ 11
+Event: 5.286 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a550bfc34 method=java.util.zip.InflaterInputStream.read()I @ 11
+Event: 5.286 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a550bfc34 method=java.util.zip.InflaterInputStream.read()I @ 11
+Event: 5.287 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5516cd24 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 5.287 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5516cd24 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 5.287 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5516cd24 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 5.289 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a5516cd24 method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 5.291 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55185348 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 91
+Event: 5.295 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55185348 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 91
+Event: 5.302 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55640ecc method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 181
+Event: 5.325 Thread 0x0000019a54f9e000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000019a556605f0 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 49
+Event: 5.340 Thread 0x0000019a54f9e000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000019a55666a4c method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.340 Thread 0x0000019a54f9e000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000019a55666a4c method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.340 Thread 0x0000019a54f9e000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000019a55666a4c method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.340 Thread 0x0000019a54f9e000 Uncommon trap: reason=array_check action=maybe_recompile pc=0x0000019a55666a4c method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 5.410 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5566c1d8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 1
+Event: 5.410 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5566c1d8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 1
+Event: 5.410 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5566c1d8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 1
+Event: 5.413 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555b4c3c method=scala.collection.generic.GenericCompanion.apply(Lscala/collection/Seq;)Lscala/collection/GenTraversable; @ 10
+Event: 5.429 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5566c1d8 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 1
+Event: 5.429 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a553445c8 method=scala.collection.Iterator$$anon$10.hasNext()Z @ 4
+Event: 5.431 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55348074 method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.431 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a553445c8 method=scala.collection.Iterator$$anon$10.hasNext()Z @ 4
+Event: 5.435 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a553445c8 method=scala.collection.Iterator$$anon$10.hasNext()Z @ 4
+Event: 5.435 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55348074 method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.435 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a553445c8 method=scala.collection.Iterator$$anon$10.hasNext()Z @ 4
+Event: 5.435 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55348074 method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.435 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555adc3c method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 5.436 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55348074 method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.436 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555c247c method=scala.collection.IndexedSeqOptimized.foreach(Lscala/Function1;)V @ 3
+Event: 5.452 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555c247c method=scala.collection.IndexedSeqOptimized.foreach(Lscala/Function1;)V @ 3
+Event: 5.452 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a556746e0 method=scala.runtime.BoxesRunTime.equalsCharObject(Ljava/lang/Character;Ljava/lang/Object;)Z @ 18
+Event: 5.452 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55565280 method=scala.collection.IndexedSeqOptimized.foreach(Lscala/Function1;)V @ 3
+Event: 5.453 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55572d44 method=scala.collection.mutable.Builder.sizeHint(Lscala/collection/TraversableLike;)V @ 31
+Event: 5.453 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a8b9c method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.453 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55471e2c method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.454 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55572d44 method=scala.collection.mutable.Builder.sizeHint(Lscala/collection/TraversableLike;)V @ 31
+Event: 5.463 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a28f8 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 61
+Event: 5.464 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5556d9bc method=scala.collection.immutable.HashMap$HashMap1.contains0(Ljava/lang/Object;II)Z @ 5
+Event: 5.469 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55550f0c method=scala.collection.immutable.HashMap$HashMap1.contains0(Ljava/lang/Object;II)Z @ 5
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5535f91c method=scala.collection.Iterator$$anon$12.hasNext()Z @ 11
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a556a303c method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5535f91c method=scala.collection.Iterator$$anon$12.hasNext()Z @ 11
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a556a303c method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5535f91c method=scala.collection.Iterator$$anon$12.hasNext()Z @ 11
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a556a303c method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a5535f91c method=scala.collection.Iterator$$anon$12.hasNext()Z @ 11
+Event: 5.509 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a556a303c method=scala.collection.Iterator$$anon$10.next()Ljava/lang/Object; @ 8
+Event: 5.511 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55343ec8 method=scala.io.BufferedSource$BufferedLineIterator.hasNext()Z @ 22
+Event: 5.528 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555abb18 method=scala.collection.IterableLike.foreach(Lscala/Function1;)V @ 1
+Event: 5.539 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a555a577c method=scala.collection.TraversableLike.$anonfun$flatMap$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder; @ 3
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a57b0 method=scala.collection.immutable.HashSet$HashSet1.foreach(Lscala/Function1;)V @ 5
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55423cb4 method=scala.collection.TraversableLike.$anonfun$map$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder; @ 8
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a57b0 method=scala.collection.immutable.HashSet$HashSet1.foreach(Lscala/Function1;)V @ 5
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55423cb4 method=scala.collection.TraversableLike.$anonfun$map$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder; @ 8
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a57b0 method=scala.collection.immutable.HashSet$HashSet1.foreach(Lscala/Function1;)V @ 5
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55423cb4 method=scala.collection.TraversableLike.$anonfun$map$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder; @ 8
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a555a57b0 method=scala.collection.immutable.HashSet$HashSet1.foreach(Lscala/Function1;)V @ 5
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000019a55423cb4 method=scala.collection.TraversableLike.$anonfun$map$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder; @ 8
+Event: 5.559 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a55553418 method=scala.runtime.BoxesRunTime.equals2(Ljava/lang/Object;Ljava/lang/Object;)Z @ 48
+Event: 6.235 Thread 0x0000019a54f9e000 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000019a55740df4 method=scala.collection.immutable.HashMap$HashTrieMap.updated0(Ljava/lang/Object;IILjava/lang/Object;Lscala/Tuple2;Lscala/collection/immutable/HashMap$Merger;)Lscala/
+Event: 6.235 Thread 0x0000019a54f9e000 Uncommon trap: reason=uninitialized action=reinterpret pc=0x0000019a55740978 method=scala.collection.immutable.HashMap$HashMap1.updated0(Ljava/lang/Object;IILjava/lang/Object;Lscala/Tuple2;Lscala/collection/immutable/HashMap$Merger;)Lscala/collection/immu
+Event: 7.242 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a5553bb50 method=scala.collection.immutable.HashMap$HashTrieMap.get0(Ljava/lang/Object;II)Lscala/Option; @ 13
+Event: 7.245 Thread 0x0000019a54f9e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000019a55734e04 method=scala.collection.immutable.Set$Set3.contains(Ljava/lang/Object;)Z @ 8
+Event: 7.437 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a555b3668 method=scala.collection.TraversableLike.builder$1(Lscala/collection/generic/CanBuildFrom;)Lscala/collection/mutable/Builder; @ 7
+Event: 7.440 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a555b3668 method=scala.collection.TraversableLike.builder$1(Lscala/collection/generic/CanBuildFrom;)Lscala/collection/mutable/Builder; @ 7
+Event: 7.441 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a555b3668 method=scala.collection.TraversableLike.builder$1(Lscala/collection/generic/CanBuildFrom;)Lscala/collection/mutable/Builder; @ 7
+Event: 7.441 Thread 0x0000019a54f9e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000019a555b3668 method=scala.collection.TraversableLike.builder$1(Lscala/collection/generic/CanBuildFrom;)Lscala/collection/mutable/Builder; @ 7
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (45 events):
+Event: 0.051 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000eab07cc0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\
+Event: 0.051 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000eab07fa8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 4015
+Event: 0.114 Thread 0x0000019a54f9e000 Exception <a 'java/io/IOException'> (0x00000000eaba3fe0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 711]
+Event: 0.120 Thread 0x0000019a54f9e000 Exception <a 'java/io/IOException'> (0x00000000eabab7f8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 711]
+Event: 0.208 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ead3b778) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.208 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ead3b988) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.224 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ead873a0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.224 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000ead875b0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.366 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eae28b20) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.366 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eae28d30) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.368 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eae2dd48) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.368 Thread 0x0000019a54f9e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000eae2df58) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1519]
+Event: 0.525 Thread 0x0000019a54f9e000 Implicit null exception at 0x0000019a55184a52 to 0x0000019a55184b69
+Event: 0.528 Thread 0x0000019a54f9e000 Implicit null exception at 0x0000019a55180384 to 0x0000019a551803c5
+Event: 1.387 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000ebd0ac00) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1169]
+Event: 1.388 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000ebd182f0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1169]
+Event: 1.839 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$$plus$plus$eq$1(Lscala/collection/generic/Growable;Ljava/lang/Object;)Lscala/collection/generic/Growable;> (0x00000000ec1f2e50) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hots
+Event: 1.873 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$map$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder;> (0x00000000ec314a98) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk
+Event: 3.117 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$$plus$plus$1(Lscala/collection/Set;Ljava/lang/Object;)Lscala/collection/Set;> (0x00000000eb998e40) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\
+Event: 3.118 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$foldLeft$1$adapted(Lscala/Function2;Lscala/runtime/ObjectRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000eb9a2580) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src
+Event: 3.145 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$flatMap$1(Lscala/Function1;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder;> (0x00000000ebac9608) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-ope
+Event: 3.145 Thread 0x0000019a54f9e000 Implicit null exception at 0x0000019a55186045 to 0x0000019a551863fd
+Event: 3.149 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$zipWithIndex$1$adapted(Lscala/collection/mutable/Builder;Lscala/runtime/IntRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000ebadd790) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-o
+Event: 3.149 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$toMap$1(Lscala/Predef$$less$colon$less;Lscala/collection/mutable/Builder;Ljava/lang/Object;)Lscala/collection/mutable/Builder;> (0x00000000ebae2a40) thrown at [C:\ojdkbuild\lookaside\ja
+Event: 3.761 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$$minus$minus$1(Lscala/collection/generic/Subtractable;Ljava/lang/Object;)Lscala/collection/generic/Subtractable;> (0x00000000ed4f1328) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openj
+Event: 3.787 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$setAsJavaSetConverter$1(Lscala/collection/convert/DecorateAsJava;Lscala/collection/Set;)Ljava/util/Set;> (0x00000000ed59dcf8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspo
+Event: 5.177 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$mapAsScalaMapConverter$1(Lscala/collection/convert/DecorateAsScala;Ljava/util/Map;)Lscala/collection/mutable/Map;> (0x00000000ef87f338) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-open
+Event: 5.196 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$max$1(Lscala/math/Ordering;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000ef9b65e0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interp
+Event: 5.278 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$foreach$2(Lscala/collection/TraversableViewLike$Mapped;Lscala/Function1;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000efad22b0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\
+Event: 5.278 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$foreach$5(Lscala/collection/TraversableViewLike$Filtered;Lscala/Function1;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000efad77b8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjd
+Event: 5.283 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$sorted$1$adapted([Ljava/lang/Object;Lscala/runtime/IntRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000efb050e8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\sh
+Event: 5.284 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$count$1$adapted(Lscala/Function1;Lscala/runtime/IntRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000efb0e5b0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share
+Event: 5.429 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$sliding$1(Lscala/collection/IterableLike;Lscala/collection/Seq;)Ljava/lang/Object;> (0x00000000f1dc7678) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interp
+Event: 5.434 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$sum$1(Lscala/math/Numeric;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000f1dfbcf0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpr
+Event: 5.444 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$releaseVersion$1$adapted(Ljava/lang/String;)Ljava/lang/Object;> (0x00000000f1e338d8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.c
+Event: 5.446 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$releaseVersion$2(Ljava/lang/String;)Ljava/lang/String;> (0x00000000f1e3e208) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line
+Event: 5.446 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$developmentVersion$1$adapted(Ljava/lang/String;)Ljava/lang/Object;> (0x00000000f1e42588) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolv
+Event: 5.447 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$developmentVersion$2(Lscala/util/PropertiesTrait;Ljava/lang/String;)Lscala/Option;> (0x00000000f1e46538) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interp
+Event: 5.495 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$distinct$1(Lscala/collection/mutable/Builder;Lscala/collection/mutable/HashSet;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000f1fef408) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-o
+Event: 5.513 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$groupBy$1(Lscala/collection/TraversableLike;Lscala/Function1;Lscala/collection/mutable/Map;Ljava/lang/Object;)Lscala/collection/mutable/Builder;> (0x00000000f20c73c8) thrown at [C:\ojdk
+Event: 5.513 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$groupBy$2(Lscala/collection/TraversableLike;)Lscala/collection/mutable/Builder;> (0x00000000f20cd718) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpret
+Event: 5.517 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$groupBy$3$adapted(Lscala/Tuple2;)Ljava/lang/Object;> (0x00000000f20dfda0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line 62
+Event: 5.518 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$groupBy$4(Lscala/collection/mutable/Builder;Lscala/Tuple2;)Lscala/collection/mutable/Builder;> (0x00000000f20eb330) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\shar
+Event: 7.384 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$filterImpl$1(Lscala/Function1;ZLscala/collection/mutable/Builder;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000ec551460) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot
+Event: 7.437 Thread 0x0000019a54f9e000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$addString$1(Lscala/collection/mutable/StringBuilder;Ljava/lang/String;Lscala/runtime/BooleanRef;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000ec5f5e88) thrown at [C:\ojdkbuild\looka
+
+Events (250 events):
+Event: 5.517 loading class scala/Tuple2 done
+Event: 5.517 loading class scala/Tuple2
+Event: 5.517 loading class scala/Tuple2 done
+Event: 5.517 loading class scala/Function1
+Event: 5.517 loading class scala/Function1 done
+Event: 5.517 loading class scala/collection/TraversableLike$WithFilter
+Event: 5.518 loading class scala/collection/TraversableLike$WithFilter done
+Event: 5.518 loading class scala/collection/mutable/Builder
+Event: 5.518 loading class scala/collection/mutable/Builder done
+Event: 5.518 loading class scala/Tuple2
+Event: 5.518 loading class scala/Tuple2 done
+Event: 5.519 loading class scala/collection/mutable/Builder
+Event: 5.519 loading class scala/collection/mutable/Builder done
+Event: 5.519 loading class scala/collection/TraversableLike$WithFilter
+Event: 5.519 loading class scala/collection/TraversableLike$WithFilter done
+Event: 5.519 loading class scala/collection/TraversableLike$WithFilter
+Event: 5.519 loading class scala/collection/TraversableLike$WithFilter done
+Event: 5.520 loading class scala/Function1
+Event: 5.520 loading class scala/Function1 done
+Event: 5.520 loading class scala/collection/mutable/DefaultEntry
+Event: 5.520 loading class scala/collection/mutable/DefaultEntry done
+Event: 5.520 loading class scala/Function1
+Event: 5.520 loading class scala/Function1 done
+Event: 5.521 loading class scala/Tuple2
+Event: 5.521 loading class scala/Tuple2 done
+Event: 5.521 loading class scala/Tuple2
+Event: 5.521 loading class scala/Tuple2 done
+Event: 5.521 loading class scala/Function2
+Event: 5.521 loading class scala/Function2 done
+Event: 5.521 loading class scala/collection/IndexedSeqLike$Elements
+Event: 5.521 loading class scala/collection/IndexedSeqLike$Elements done
+Event: 5.523 loading class scala/collection/immutable/Map
+Event: 5.523 loading class scala/collection/immutable/Map done
+Event: 5.523 loading class scala/collection/immutable/Map
+Event: 5.523 loading class scala/collection/immutable/Map done
+Event: 5.525 loading class scala/Predef$any2stringadd$
+Event: 5.525 loading class scala/Predef$any2stringadd$ done
+Event: 5.528 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a555abb18
+Event: 5.528 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555abb18 sp=0x0000008cff3e8ed0
+Event: 5.528 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8de8 mode 2
+Event: 5.534 loading class org/openkoreantext/processor/stemmer/KoreanStemmer$
+Event: 5.534 loading class org/openkoreantext/processor/stemmer/KoreanStemmer$ done
+Event: 5.534 loading class scala/collection/immutable/List
+Event: 5.534 loading class scala/collection/immutable/List done
+Event: 5.534 loading class org/openkoreantext/processor/stemmer/KoreanStemmer$
+Event: 5.534 loading class org/openkoreantext/processor/stemmer/KoreanStemmer$ done
+Event: 5.538 loading class scala/collection/immutable/Set
+Event: 5.538 loading class scala/collection/immutable/Set done
+Event: 5.539 loading class scala/collection/immutable/Set
+Event: 5.539 loading class scala/collection/immutable/Set done
+Event: 5.539 loading class scala/Function1
+Event: 5.539 loading class scala/Function1 done
+Event: 5.539 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a555a577c
+Event: 5.539 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555a577c sp=0x0000008cff3e8da0
+Event: 5.539 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8c90 mode 2
+Event: 5.540 loading class scala/Tuple2
+Event: 5.540 loading class scala/Tuple2 done
+Event: 5.540 loading class scala/Function1
+Event: 5.540 loading class scala/Function1 done
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a555a57b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555a57b0 sp=0x0000008cff3e88b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8870 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a55423cb4
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55423cb4 sp=0x0000008cff3e8850
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8798 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a555a57b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555a57b0 sp=0x0000008cff3e8870
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8830 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a55423cb4
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55423cb4 sp=0x0000008cff3e8810
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8758 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a555a57b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555a57b0 sp=0x0000008cff3e8870
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8830 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a55423cb4
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55423cb4 sp=0x0000008cff3e8810
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8758 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a555a57b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555a57b0 sp=0x0000008cff3e88b0
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8870 mode 2
+Event: 5.540 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x0000019a55423cb4
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55423cb4 sp=0x0000008cff3e8850
+Event: 5.540 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8798 mode 2
+Event: 5.559 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a55553418
+Event: 5.559 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55553418 sp=0x0000008cff3e85d0
+Event: 5.559 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e84c0 mode 2
+Event: 5.573 Executing VM operation: ForceSafepoint
+Event: 5.573 Executing VM operation: ForceSafepoint done
+Event: 5.575 Executing VM operation: ParallelGCFailedAllocation
+Event: 5.609 Executing VM operation: ParallelGCFailedAllocation done
+Event: 5.609 Executing VM operation: RevokeBias
+Event: 5.609 Executing VM operation: RevokeBias done
+Event: 5.641 Executing VM operation: ParallelGCSystemGC
+Event: 5.898 Executing VM operation: ParallelGCSystemGC done
+Event: 5.898 Executing VM operation: RevokeBias
+Event: 5.898 Executing VM operation: RevokeBias done
+Event: 5.898 Executing VM operation: RevokeBias
+Event: 5.898 Executing VM operation: RevokeBias done
+Event: 5.898 Executing VM operation: RevokeBias
+Event: 5.898 Executing VM operation: RevokeBias done
+Event: 5.899 Executing VM operation: RevokeBias
+Event: 5.899 Executing VM operation: RevokeBias done
+Event: 5.899 Executing VM operation: RevokeBias
+Event: 5.899 Executing VM operation: RevokeBias done
+Event: 5.899 Executing VM operation: RevokeBias
+Event: 5.899 Executing VM operation: RevokeBias done
+Event: 5.899 Executing VM operation: RevokeBias
+Event: 5.899 Executing VM operation: RevokeBias done
+Event: 5.899 Executing VM operation: RevokeBias
+Event: 5.899 Executing VM operation: RevokeBias done
+Event: 5.934 Executing VM operation: ParallelGCSystemGC
+Event: 6.107 Executing VM operation: ParallelGCSystemGC done
+Event: 6.107 Executing VM operation: RevokeBias
+Event: 6.107 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.108 Executing VM operation: RevokeBias done
+Event: 6.108 Executing VM operation: RevokeBias
+Event: 6.109 Executing VM operation: RevokeBias done
+Event: 6.109 Executing VM operation: RevokeBias
+Event: 6.109 Executing VM operation: RevokeBias done
+Event: 6.109 Executing VM operation: BulkRevokeBias
+Event: 6.109 Executing VM operation: BulkRevokeBias done
+Event: 6.198 loading class scala/collection/immutable/ListMap$
+Event: 6.198 loading class scala/collection/immutable/ListMap$ done
+Event: 6.198 loading class scala/collection/immutable/ListMap
+Event: 6.198 loading class scala/collection/immutable/ListMap done
+Event: 6.199 loading class scala/collection/immutable/ListMap$EmptyListMap$
+Event: 6.199 loading class scala/collection/immutable/ListMap$EmptyListMap$ done
+Event: 6.201 loading class scala/collection/immutable/ListMap$Node
+Event: 6.201 loading class scala/collection/immutable/ListMap$Node done
+Event: 6.235 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffff76 fr.pc=0x0000019a55740df4
+Event: 6.235 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55740df4 sp=0x0000008cff3e8a80
+Event: 6.235 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8a30 mode 2
+Event: 6.235 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffb5 fr.pc=0x0000019a55740978
+Event: 6.235 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55740978 sp=0x0000008cff3e8a40
+Event: 6.235 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e88c8 mode 2
+Event: 6.242 loading class scala/collection/immutable/ListMap
+Event: 6.242 loading class scala/collection/immutable/ListMap done
+Event: 6.243 loading class scala/collection/immutable/ListMap
+Event: 6.243 loading class scala/collection/immutable/ListMap done
+Event: 6.243 loading class scala/Function2
+Event: 6.243 loading class scala/Function2 done
+Event: 6.426 Executing VM operation: ForceSafepoint
+Event: 6.427 Executing VM operation: ForceSafepoint done
+Event: 6.510 Executing VM operation: ParallelGCFailedAllocation
+Event: 6.897 Executing VM operation: ParallelGCFailedAllocation done
+Event: 6.936 Executing VM operation: ParallelGCSystemGC
+Event: 7.216 Executing VM operation: ParallelGCSystemGC done
+Event: 7.216 Executing VM operation: RevokeBias
+Event: 7.216 Executing VM operation: RevokeBias done
+Event: 7.242 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000019a5553bb50
+Event: 7.242 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a5553bb50 sp=0x0000008cff3e8f50
+Event: 7.242 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8ee8 mode 2
+Event: 7.245 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000019a55734e04
+Event: 7.245 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a55734e04 sp=0x0000008cff3e8be0
+Event: 7.245 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e8b98 mode 2
+Event: 7.335 loading class scala/Symbol
+Event: 7.335 loading class scala/Symbol done
+Event: 7.344 loading class org/openkoreantext/processor/util/KoreanPos
+Event: 7.344 loading class org/openkoreantext/processor/util/KoreanPos done
+Event: 7.345 loading class scala/Enumeration
+Event: 7.345 loading class scala/Enumeration done
+Event: 7.345 loading class scala/Enumeration
+Event: 7.345 loading class scala/Enumeration done
+Event: 7.346 loading class scala/collection/mutable/ArrayOps$ofRef
+Event: 7.346 loading class scala/collection/mutable/ArrayOps$ofRef done
+Event: 7.348 loading class scala/collection/mutable/ArrayOps
+Event: 7.348 loading class scala/collection/mutable/ArrayOps done
+Event: 7.354 loading class scala/Enumeration$ValueSet
+Event: 7.354 loading class scala/Enumeration$ValueSet done
+Event: 7.356 loading class scala/collection/immutable/SortedSet
+Event: 7.356 loading class scala/collection/immutable/SortedSet done
+Event: 7.357 loading class scala/collection/SortedSet
+Event: 7.357 loading class scala/collection/SortedSet done
+Event: 7.357 loading class scala/collection/SortedSetLike
+Event: 7.357 loading class scala/collection/SortedSetLike done
+Event: 7.358 loading class scala/collection/generic/Sorted
+Event: 7.358 loading class scala/collection/generic/Sorted done
+Event: 7.379 loading class scala/Enumeration$ValueOrdering$
+Event: 7.379 loading class scala/Enumeration$ValueOrdering$ done
+Event: 7.379 loading class scala/Enumeration$ValueSet$
+Event: 7.379 loading class scala/Enumeration$ValueSet$ done
+Event: 7.382 loading class scala/collection/mutable/ArrayOps$ofRef$
+Event: 7.382 loading class scala/collection/mutable/ArrayOps$ofRef$ done
+Event: 7.383 loading class scala/reflect/ClassTag$GenericClassTag
+Event: 7.383 loading class scala/reflect/ClassTag$GenericClassTag done
+Event: 7.384 loading class scala/Function1
+Event: 7.384 loading class scala/Function1 done
+Event: 7.384 loading class scala/Function1
+Event: 7.384 loading class scala/Function1 done
+Event: 7.389 loading class java/util/function/UnaryOperator
+Event: 7.389 loading class java/util/function/UnaryOperator done
+Event: 7.389 loading class java/util/function/Consumer
+Event: 7.389 loading class java/util/function/Consumer done
+Event: 7.389 loading class java/util/function/Predicate
+Event: 7.389 loading class java/util/function/Predicate done
+Event: 7.389 loading class java/util/stream/Stream
+Event: 7.389 loading class java/util/stream/Stream done
+Event: 7.392 loading class java/util/ArrayList$ArrayListSpliterator
+Event: 7.392 loading class java/util/ArrayList$ArrayListSpliterator done
+Event: 7.392 loading class java/util/ArrayList$ListItr
+Event: 7.392 loading class java/util/ArrayList$ListItr done
+Event: 7.392 Executing VM operation: Deoptimize
+Event: 7.393 Executing VM operation: Deoptimize done
+Event: 7.436 loading class scala/collection/immutable/IndexedSeq
+Event: 7.436 loading class scala/collection/immutable/IndexedSeq done
+Event: 7.436 loading class scala/Tuple2
+Event: 7.436 loading class scala/Tuple2 done
+Event: 7.436 loading class scala/collection/immutable/IndexedSeq
+Event: 7.436 loading class scala/collection/immutable/IndexedSeq done
+Event: 7.437 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a555b3668
+Event: 7.437 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555b3668 sp=0x0000008cff3e92c0
+Event: 7.437 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e9130 mode 2
+Event: 7.437 loading class scala/collection/mutable/StringBuilder
+Event: 7.437 loading class scala/collection/mutable/StringBuilder done
+Event: 7.437 loading class scala/collection/mutable/StringBuilder
+Event: 7.437 loading class scala/collection/mutable/StringBuilder done
+Event: 7.438 loading class org/openkoreantext/processor/util/KoreanSubstantive$
+Event: 7.438 loading class org/openkoreantext/processor/util/KoreanSubstantive$ done
+Event: 7.439 loading class org/openkoreantext/processor/util/KoreanSubstantive$
+Event: 7.439 loading class org/openkoreantext/processor/util/KoreanSubstantive$ done
+Event: 7.440 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a555b3668
+Event: 7.440 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555b3668 sp=0x0000008cff3e92c0
+Event: 7.440 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e9130 mode 2
+Event: 7.441 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a555b3668
+Event: 7.441 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555b3668 sp=0x0000008cff3e92c0
+Event: 7.441 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e9130 mode 2
+Event: 7.441 Thread 0x0000019a54f9e000 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000019a555b3668
+Event: 7.441 Thread 0x0000019a54f9e000 DEOPT PACKING pc=0x0000019a555b3668 sp=0x0000008cff3e92c0
+Event: 7.441 Thread 0x0000019a54f9e000 DEOPT UNPACKING pc=0x0000019a54fe5583 sp=0x0000008cff3e9130 mode 2
+Event: 8.180 Executing VM operation: ParallelGCSystemGC
+Event: 8.585 Executing VM operation: ParallelGCSystemGC done
+Event: 8.586 Executing VM operation: ParallelGCSystemGC
+Event: 8.687 Executing VM operation: ParallelGCSystemGC done
+Event: 9.505 Executing VM operation: ParallelGCSystemGC
+Event: 9.670 Executing VM operation: ParallelGCSystemGC done
+Event: 212.932 Executing VM operation: ParallelGCSystemGC
+Event: 213.071 Executing VM operation: ParallelGCSystemGC done
+
+
+Dynamic libraries:
+0x00007ff7142a0000 - 0x00007ff7142bc000 	C:\Users\user\anaconda3\python.exe
+0x00007ff9248a0000 - 0x00007ff924a90000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff923e40000 - 0x00007ff923ef2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff921cf0000 - 0x00007ff921f95000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff921880000 - 0x00007ff92197a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff907cb0000 - 0x00007ff907cc5000 	C:\Users\user\anaconda3\VCRUNTIME140.dll
+0x00007ff8e6ce0000 - 0x00007ff8e70a3000 	C:\Users\user\anaconda3\python37.dll
+0x00007ff923ad0000 - 0x00007ff923b22000 	C:\WINDOWS\System32\SHLWAPI.dll
+0x00007ff922bd0000 - 0x00007ff922c6e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff922f20000 - 0x00007ff923255000 	C:\WINDOWS\System32\combase.dll
+0x00007ff923f00000 - 0x00007ff924020000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff921c70000 - 0x00007ff921cf0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff923cd0000 - 0x00007ff923cf6000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff922920000 - 0x00007ff922941000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff921ad0000 - 0x00007ff921c66000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff921fa0000 - 0x00007ff92203e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff923b30000 - 0x00007ff923cc5000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff923dd0000 - 0x00007ff923e3f000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff922b20000 - 0x00007ff922bc3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff91a030000 - 0x00007ff91a03a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff924020000 - 0x00007ff9240b7000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff924680000 - 0x00007ff9246ae000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff9220a0000 - 0x00007ff9220b7000 	C:\WINDOWS\System32\CRYPTSP.dll
+0x00007ff920b20000 - 0x00007ff920b53000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ff922840000 - 0x00007ff922866000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff921180000 - 0x00007ff92118c000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00007ff907ca0000 - 0x00007ff907caf000 	C:\Users\user\anaconda3\python3.dll
+0x00007ff900fe0000 - 0x00007ff900ff8000 	C:\Users\user\anaconda3\DLLs\_bz2.pyd
+0x00007ff900bb0000 - 0x00007ff900bf1000 	C:\Users\user\anaconda3\DLLs\_lzma.pyd
+0x00007ff906ab0000 - 0x00007ff906abd000 	C:\Users\user\anaconda3\DLLs\_hashlib.pyd
+0x00007ff8e5f60000 - 0x00007ff8e62a6000 	C:\Users\user\anaconda3\Library\bin\libcrypto-1_1-x64.dll
+0x00007ff902980000 - 0x00007ff9029a3000 	C:\Users\user\anaconda3\DLLs\_ctypes.pyd
+0x00007ff922d60000 - 0x00007ff922eb7000 	C:\WINDOWS\System32\ole32.dll
+0x00007ff9229d0000 - 0x00007ff922a95000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff9233e0000 - 0x00007ff923ac7000 	C:\WINDOWS\System32\shell32.DLL
+0x00007ff921830000 - 0x00007ff92187a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ff923330000 - 0x00007ff9233d9000 	C:\WINDOWS\System32\shcore.dll
+0x00007ff9220c0000 - 0x00007ff922840000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ff921790000 - 0x00007ff9217b3000 	C:\WINDOWS\System32\profapi.dll
+0x00007ff9217c0000 - 0x00007ff92180a000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ff921760000 - 0x00007ff921770000 	C:\WINDOWS\System32\UMPDC.dll
+0x00007ff921810000 - 0x00007ff921821000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ff8f9280000 - 0x00007ff8f9297000 	C:\Users\user\anaconda3\DLLs\_sqlite3.pyd
+0x00007ff8e5310000 - 0x00007ff8e5417000 	C:\Users\user\anaconda3\Library\bin\sqlite3.dll
+0x00007ff8fe8b0000 - 0x00007ff8fe8c5000 	C:\Users\user\anaconda3\DLLs\_socket.pyd
+0x00007ff9028f0000 - 0x00007ff9028f9000 	C:\Users\user\anaconda3\DLLs\select.pyd
+0x00007ff8fe890000 - 0x00007ff8fe8af000 	C:\Users\user\anaconda3\DLLs\_ssl.pyd
+0x00007ff921980000 - 0x00007ff921ac9000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ff921770000 - 0x00007ff921782000 	C:\WINDOWS\System32\MSASN1.dll
+0x00007ff8fe2d0000 - 0x00007ff8fe37b000 	C:\Users\user\anaconda3\Library\bin\libssl-1_1-x64.dll
+0x00007ff8f9350000 - 0x00007ff8f9364000 	C:\Users\user\anaconda3\DLLs\_asyncio.pyd
+0x00007ff8f9df0000 - 0x00007ff8f9dfd000 	C:\Users\user\anaconda3\DLLs\_overlapped.pyd
+0x00007ff920fb0000 - 0x00007ff921017000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ff8f26f0000 - 0x00007ff8f27f8000 	C:\Users\user\anaconda3\DLLs\unicodedata.pyd
+0x00007ff91bb60000 - 0x00007ff91bb69000 	C:\Users\user\anaconda3\DLLs\_queue.pyd
+0x00007ff917d00000 - 0x00007ff917d16000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\constants.cp37-win_amd64.pyd
+0x00007ff917cf0000 - 0x00007ff917cfc000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\error.cp37-win_amd64.pyd
+0x00007ff8f9e60000 - 0x00007ff8f9ed2000 	C:\Users\user\anaconda3\Library\bin\libzmq-mt-4_3_1.dll
+0x00007ff920cc0000 - 0x00007ff920cfa000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ff91db40000 - 0x00007ff91dbde000 	C:\WINDOWS\SYSTEM32\MSVCP140.dll
+0x00007ff8fe1b0000 - 0x00007ff8fe1fb000 	C:\Users\user\anaconda3\Library\bin\libsodium.dll
+0x00007ff900e20000 - 0x00007ff900e3a000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\message.cp37-win_amd64.pyd
+0x00007ff900e00000 - 0x00007ff900e14000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\context.cp37-win_amd64.pyd
+0x00007ff8fa0e0000 - 0x00007ff8fa106000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\socket.cp37-win_amd64.pyd
+0x00007ff8fe5e0000 - 0x00007ff8fe5ee000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\utils.cp37-win_amd64.pyd
+0x00007ff8f9e40000 - 0x00007ff8f9e54000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\_poll.cp37-win_amd64.pyd
+0x00007ff8f9e30000 - 0x00007ff8f9e3c000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\_version.cp37-win_amd64.pyd
+0x00007ff8f9e10000 - 0x00007ff8f9e22000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\_device.cp37-win_amd64.pyd
+0x00007ff8f9e00000 - 0x00007ff8f9e10000 	C:\Users\user\anaconda3\lib\site-packages\zmq\backend\cython\_proxy_steerable.cp37-win_amd64.pyd
+0x00007ff919850000 - 0x00007ff919857000 	C:\Users\user\anaconda3\lib\site-packages\tornado\speedups.cp37-win_amd64.pyd
+0x00007ff900c00000 - 0x00007ff900c44000 	C:\Users\user\anaconda3\DLLs\_decimal.pyd
+0x00007ff924530000 - 0x00007ff924538000 	C:\WINDOWS\System32\NSI.dll
+0x00007ff917710000 - 0x00007ff917726000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x00007ff9177e0000 - 0x00007ff9177fc000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x00007ff920d00000 - 0x00007ff920dcb000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00000000551c0000 - 0x00000000551e4000 	C:\Users\user\anaconda3\lib\site-packages\win32\win32api.pyd
+0x0000000055190000 - 0x00000000551b6000 	C:\Users\user\anaconda3\lib\site-packages\win32\pywintypes37.dll
+0x00007ff90fd20000 - 0x00007ff90fd2c000 	C:\WINDOWS\SYSTEM32\secur32.dll
+0x00007ff921640000 - 0x00007ff921677000 	C:\WINDOWS\SYSTEM32\SSPICLI.DLL
+0x0000000057120000 - 0x0000000057146000 	C:\Users\user\anaconda3\lib\site-packages\win32\win32security.pyd
+0x00007ff90fc40000 - 0x00007ff90fc57000 	C:\WINDOWS\SYSTEM32\NETAPI32.dll
+0x00007ff920dd0000 - 0x00007ff920ddc000 	C:\WINDOWS\SYSTEM32\NETUTILS.DLL
+0x0000019a51a80000 - 0x0000019a51a83000 	C:\WINDOWS\SYSTEM32\security.dll
+0x00007ff911f00000 - 0x00007ff911f28000 	C:\WINDOWS\SYSTEM32\ntdsapi.dll
+0x00007ff920de0000 - 0x00007ff920e22000 	C:\WINDOWS\SYSTEM32\LOGONCLI.DLL
+0x00007ff91da70000 - 0x00007ff91da77000 	C:\Users\user\anaconda3\lib\site-packages\mkl\_mklinit.cp37-win_amd64.pyd
+0x00007ff8cece0000 - 0x00007ff8cfb63000 	C:\Users\user\anaconda3\Library\bin\mkl_rt.dll
+0x00007ff91da30000 - 0x00007ff91da52000 	C:\Users\user\anaconda3\lib\site-packages\mkl\_py_mkl_service.cp37-win_amd64.pyd
+0x00007ff8f17c0000 - 0x00007ff8f1a8a000 	C:\Users\user\anaconda3\lib\site-packages\numpy\core\_multiarray_umath.cp37-win_amd64.pyd
+0x00007ff91d870000 - 0x00007ff91d88e000 	C:\Users\user\anaconda3\lib\site-packages\numpy\core\_multiarray_tests.cp37-win_amd64.pyd
+0x00007ff91da20000 - 0x00007ff91da29000 	C:\Users\user\anaconda3\lib\site-packages\numpy\linalg\lapack_lite.cp37-win_amd64.pyd
+0x00007ff91d670000 - 0x00007ff91d69a000 	C:\Users\user\anaconda3\lib\site-packages\numpy\linalg\_umath_linalg.cp37-win_amd64.pyd
+0x00007ff91d650000 - 0x00007ff91d670000 	C:\Users\user\anaconda3\lib\site-packages\numpy\fft\_pocketfft_internal.cp37-win_amd64.pyd
+0x00007ff91d5b0000 - 0x00007ff91d643000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\mtrand.cp37-win_amd64.pyd
+0x00007ff919e70000 - 0x00007ff919e9b000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_bit_generator.cp37-win_amd64.pyd
+0x00007ff919810000 - 0x00007ff91983f000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_common.cp37-win_amd64.pyd
+0x00007ff911a20000 - 0x00007ff911a69000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_bounded_integers.cp37-win_amd64.pyd
+0x00007ff919860000 - 0x00007ff91987d000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_mt19937.cp37-win_amd64.pyd
+0x00007ff9197f0000 - 0x00007ff919808000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_philox.cp37-win_amd64.pyd
+0x00007ff919290000 - 0x00007ff9192a5000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_pcg64.cp37-win_amd64.pyd
+0x00007ff9162b0000 - 0x00007ff9162c2000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_sfc64.cp37-win_amd64.pyd
+0x00007ff9109f0000 - 0x00007ff910a99000 	C:\Users\user\anaconda3\lib\site-packages\numpy\random\_generator.cp37-win_amd64.pyd
+0x00007ff8ccd70000 - 0x00007ff8cecd3000 	C:\Users\user\anaconda3\Library\bin\mkl_intel_thread.dll
+0x00007ff8f3cc0000 - 0x00007ff8f3ec0000 	C:\Users\user\anaconda3\Library\bin\libiomp5md.dll
+0x00007ff8c8940000 - 0x00007ff8ccd6b000 	C:\Users\user\anaconda3\Library\bin\mkl_core.dll
+0x00007ff8c6230000 - 0x00007ff8c893e000 	C:\Users\user\anaconda3\Library\bin\mkl_avx2.dll
+0x00007ff8df700000 - 0x00007ff8e035e000 	C:\Users\user\anaconda3\Library\bin\mkl_vml_avx2.dll
+0x00007ff910b20000 - 0x00007ff910b60000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\conversion.cp37-win_amd64.pyd
+0x00007ff910ae0000 - 0x00007ff910b1c000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\c_timestamp.cp37-win_amd64.pyd
+0x00007ff910aa0000 - 0x00007ff910ad3000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\nattype.cp37-win_amd64.pyd
+0x00007ff90df90000 - 0x00007ff90dfa1000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\np_datetime.cp37-win_amd64.pyd
+0x00007ff90a9e0000 - 0x00007ff90aa16000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\timezones.cp37-win_amd64.pyd
+0x00007ff90a9a0000 - 0x00007ff90a9df000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\tzconversion.cp37-win_amd64.pyd
+0x00007ff90a930000 - 0x00007ff90a996000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\timedeltas.cp37-win_amd64.pyd
+0x00007ff90a8d0000 - 0x00007ff90a92b000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\offsets.cp37-win_amd64.pyd
+0x00007ff90d520000 - 0x00007ff90d533000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\ccalendar.cp37-win_amd64.pyd
+0x00007ff9088b0000 - 0x00007ff908904000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\strptime.cp37-win_amd64.pyd
+0x00007ff901650000 - 0x00007ff90168c000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\fields.cp37-win_amd64.pyd
+0x00007ff8fe630000 - 0x00007ff8fe686000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\parsing.cp37-win_amd64.pyd
+0x00007ff908880000 - 0x00007ff9088a2000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\frequencies.cp37-win_amd64.pyd
+0x00007ff8fda90000 - 0x00007ff8fdaf1000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\period.cp37-win_amd64.pyd
+0x00007ff8fda40000 - 0x00007ff8fda82000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\timestamps.cp37-win_amd64.pyd
+0x00007ff8fe5f0000 - 0x00007ff8fe62a000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslibs\resolution.cp37-win_amd64.pyd
+0x00007ff8f9480000 - 0x00007ff8f9509000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\hashtable.cp37-win_amd64.pyd
+0x00007ff9029b0000 - 0x00007ff9029dd000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\missing.cp37-win_amd64.pyd
+0x00007ff901630000 - 0x00007ff901642000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\ops_dispatch.cp37-win_amd64.pyd
+0x00007ff8fd9c0000 - 0x00007ff8fda39000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\lib.cp37-win_amd64.pyd
+0x00007ff8f9430000 - 0x00007ff8f9475000 	C:\Users\user\anaconda3\lib\site-packages\pandas\_libs\tslib.cp37-win_amd64.pyd
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+java_command: <unknown>
+java_class_path (initial): C:\Users\user\anaconda3\lib\site-packages\konlpy\java;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\bin;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\*;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\jhannanum-0.8.4.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\kkma-2.0.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\aho-corasick.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\shineware-common-1.0.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\shineware-ds-1.0.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\komoran-3.0.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\snakeyaml-1.12.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\scala-library-2.12.3.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\open-korean-text-2.1.0.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\twitter-text-1.14.7.jar;C:\Users\user\anaconda3\lib\site-packages\konlpy\java\*
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.265-1
+PATH=C:\Users\user\anaconda3;C:\Users\user\anaconda3\Library\mingw-w64\bin;C:\Users\user\anaconda3\Library\usr\bin;C:\Users\user\anaconda3\Library\bin;C:\Users\user\anaconda3\Scripts;C:\Users\user\anaconda3\bin;C:\Users\user\anaconda3\condabin;C:\Users\user\anaconda3;C:\Users\user\anaconda3\Library\mingw-w64\bin;C:\Users\user\anaconda3\Library\usr\bin;C:\Users\user\anaconda3\Library\bin;C:\Users\user\anaconda3\Scripts;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Users\user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.8;C:\Program Files\Git\cmd;C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.265-1\bin;C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.265-1\jre\bin;C:\Users\user\AppData\Local\Programs\Python\Python38\Scripts;C:\Users\user\AppData\Local\Programs\Python\Python38;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Users\user\AppData\Local\atom\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;.;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=user
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.1082)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8266112k(3603608k free), swap 9941232k(1509672k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.265-b01) for windows-amd64 JRE (1.8.0_265-b01), built on Aug 30 2020 04:02:37 by "Administrator" with MS VC++ 10.0 (VS2010)
+
+time: Tue Oct 20 10:36:43 2020
+timezone: 대한민국 표준시
+elapsed time: 213 seconds (0d 0h 3m 33s)
+
